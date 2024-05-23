@@ -69,16 +69,23 @@
 
         <section id="environment">
             <div class="container-md bg-body-tertiary rounded-3 m-4 p-3 ">
-                <h3>테스트 환경 구축</h3>
+                <h3>환경 구축</h3>
                 <h5>
-                    환경을 구축하는 방법은 세 가지 입니다.
+                    개인 또는 사용자가 사용할 수 있는 환경 구축
                 </h5>
-                <ul>
-                    <li>Python</li>
-                    <li>Netlify</li>
-                    <li>Node.js</li>
-                </ul>
-                <p>공통방법d</p>
+                <div class="container-sm bg-body-secondary p-3 rounded-3" id="python">
+                    <h4>server.py</h4>
+                    <p>파이썬 스크립트를 다음과 같이 작성하세요.</p>
+                    <div class="p-3 bg-black rounded-3">
+                        <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"> <div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div><div style="line-height:130%">14</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">from</span>&nbsp;http&nbsp;<span style="color:#ff3399">import</span>&nbsp;server</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">class</span>&nbsp;HTTPServer(server.SimpleHTTPRequestHandler):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">def</span>&nbsp;end_headers(<span style="color:#4be6fa">self</span>):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_my_headers()</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server.SimpleHTTPRequestHandler.end_headers(<span style="color:#4be6fa">self</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">def</span>&nbsp;send_my_headers(<span style="color:#4be6fa">self</span>):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Access-Control-Allow-Origin"</span>,&nbsp;<span style="color:#ffd500">"*"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Cross-Origin-Embedder-Policy"</span>,&nbsp;<span style="color:#ffd500">"require-corp"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Cross-Origin-Opener-Policy"</span>,<span style="color:#ffd500">"same-origin"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">if</span>&nbsp;__name__&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span><span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;<span style="color:#ffd500">'__main__'</span>:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;server.test(HandlerClass&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;HTTPServer)</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+                    </div>
+                </div>
+                <div class="container-sm bg-body-secondary p-3 rounded-3" id="netlify">
+                    <p>netlify.toml파일을 생성 후, 아래의 코드를 추가해주세요.</p>
+                    <div class="p-3 bg-black rounded-3 ">
+                        
+                    </div>
+                </div>
             </div>
         </section>
     </main>
