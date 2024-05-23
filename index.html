@@ -12,82 +12,113 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-secondary">
         <div class="container-fluid">
-            <a href="#" class="navbar-brand">Godot-JS</a>
+            <a href="#" class="navbar-brand">Godot-Web</a>
             <form class="d-flex" role="search">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Examples</option>
-                    <option value="1">예제 - 1: JS to Godot</option>
-                    <option value="2">예제 - 2: Godot to JS</option>
-                    <option value="3">예제 - 3: Process to</option>
+                    <optgroup label="valueOf">
+                        <option value="js_to_godot">JS to Godot</option>
+                        <option value="godot_to_js">Godot to JS</option>
+                        <option value="process">Process to</option>
+                    </optgroup>
+                    <optgroup label="method">
+                        <option value="method">function</option>
+                        <option value="emit_signal">Signal 발생</option>
+                        <option value="eval">eval()</option>
+                    </optgroup>
                   </select>
             </form>
         </div>
     </nav>
-
     <main class="align-content-center">
-        <section id="title">
-            <div class="container-md bg-opacity-50 bg-primary rounded-3 m-4 p-3">
-                <h1>
-                    JavaScript X GDScript
-                </h1>
-                <p class="text-warning-emphasis">
-                     &nbsp;해당 문서를 진행하기 위해서는 JS 뿐만 아니라, GDScript의 이해 또한 필요합니다.
-                </p>
-                <p>
-                    GDScript가 처음이라면 <a href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html">GDScript Reference</a>를 참고해주세요.
-                </p>
-                <p class="text-danger-emphasis ">Godot Engine 초심자를 위한 문서가 아닙니다.</p>
-                <p class="text-warning-emphasis ">
-                    현재 .Net(C#)버전은 Web Export를 지원하지 않습니다.
-                </p>
-                <ul>
-                    <li><a href="#jsbridge">JavaScriptBridge에 대하여</a></li>
-                    <li><a href="#environment">테스트 환경 구축</a></li>
-                </ul>
-            </div>
-        </section>
+        <div class="" id="section">
+            <div id="title" class="m-3">
+                <div class="container-md bg-opacity-50 bg-primary rounded-3 m-auto p-3">
+                    <h1 class="mt-1">
+                        &lt;Web Cross to Godot&gt;
+                    </h1>
+                    <h6 class="text-warning-emphasis m-3">
+                        &nbsp;해당 문서를 진행하기 위해서는 JS 뿐만 아니라, GDScript 2.0(Godot4)의 이해가 필요합니다.
+                    </h6>
+                    <p class="text-danger-emphasis m-3">
+                        &nbsp;GDScript가 처음이라면 <a class="badge rounded-pill text-bg-light" href="https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html">GDScript Reference</a>를 참고해주세요.
+                    </p>
+                    <p class="text-warning-emphasis m-3">&nbsp;Godot Engine 입문서가 아닙니다.</p>
+                    <p class="text-warning-emphasis m-3">
+                        &nbsp;현재 .Net(C#)버전은 Web Export를 지원하지 않습니다. C# 웹으로 내보내기 기능은 3.x 버전에서만 지원하고 있습니다.
+                    </p>
 
-        <section id="jsbridge">
-            <div class="container-md bg-body-tertiary rounded-3 m-4 p-3">
-                <h3>
-                    JavaScriptBridge
-                </h3>
-                <h5>
-                    &nbsp;이 문단은 공식문서에 표기된 클래스 <a href="https://docs.godotengine.org/ko/4.x/classes/class_javascriptbridge.html">JavaScriptBridge</a> 문서의 보충입니다.
-                </h5>
-                <p>
-                    &nbsp; 자바스크립트와 고도는 모두 동적타입 언어이지만 자바스크립트와 달리 GDScript는 정적타이핑 작성을 적극적으로 권장하며 성능에 영향을 미칩니다.
-                </p>
-                <p>아래는 자바오브젝트에서 value을 가져왔을 시 GDScript에서 대응되는 타입입니다.</p>
-                <ul>
-                    <li>Boolean > bool</li>
-                    <li>Number > int / float</li>
-                    <li>String > String</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="environment">
-            <div class="container-md bg-body-tertiary rounded-3 m-4 p-3 ">
-                <h3>환경 구축</h3>
-                <h5>
-                    개인 또는 사용자가 사용할 수 있는 환경 구축
-                </h5>
-                <div class="container-sm bg-body-secondary p-3 rounded-3" id="python">
-                    <h4>server.py</h4>
-                    <p>파이썬 스크립트를 다음과 같이 작성하세요.</p>
-                    <div class="p-3 bg-black rounded-3">
-                        <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"> <div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div><div style="line-height:130%">14</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">from</span>&nbsp;http&nbsp;<span style="color:#ff3399">import</span>&nbsp;server</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">class</span>&nbsp;HTTPServer(server.SimpleHTTPRequestHandler):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">def</span>&nbsp;end_headers(<span style="color:#4be6fa">self</span>):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_my_headers()</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server.SimpleHTTPRequestHandler.end_headers(<span style="color:#4be6fa">self</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">def</span>&nbsp;send_my_headers(<span style="color:#4be6fa">self</span>):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Access-Control-Allow-Origin"</span>,&nbsp;<span style="color:#ffd500">"*"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Cross-Origin-Embedder-Policy"</span>,&nbsp;<span style="color:#ffd500">"require-corp"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Cross-Origin-Opener-Policy"</span>,<span style="color:#ffd500">"same-origin"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">if</span>&nbsp;__name__&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span><span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;<span style="color:#ffd500">'__main__'</span>:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;server.test(HandlerClass&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;HTTPServer)</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
-                    </div>
-                </div>
-                <div class="container-sm bg-body-secondary p-3 rounded-3" id="netlify">
-                    <p>netlify.toml파일을 생성 후, 아래의 코드를 추가해주세요.</p>
-                    <div class="p-3 bg-black rounded-3 ">
-                        
+                    <div class="list-group bg-body p-3 m-3">
+                        <a href="#jsbridge" class="list-group-item list-group-item-action list-group-item-info">JavaScriptBridge에 대하여</a>
+                        <a href="#environment" class="list-group-item list-group-item-action list-group-item-info">테스트 환경 구축</a>
                     </div>
                 </div>
             </div>
-        </section>
+    
+            <div id="jsbridge" class="m-3">
+                <div class="container-md bg-body-tertiary rounded-3 p-3">
+                    <h3 class="mb-3">
+                        JavaScriptBridge
+                    </h3>
+                    <div class="container-md rounded-3 m-auto p-3 bg-dark-subtle">
+                        <h6 class="m-3">
+                            이 문단은 공식문서에 서술된 <a class="badge rounded-pill text-bg-light" href="https://docs.godotengine.org/ko/4.x/classes/class_javascriptbridge.html">JavaScriptBridge</a> 클래스 설명의 보완입니다.
+                        </h6>
+                        <p class="m-3">
+                            Godot Engine 공식 문서의 <a class="badge rounded-pill text-bg-danger" href="https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html#calling-javascript-from-script">Export for the Web</a> 한 번 읽어주시길 바랍니다.
+                        </p>
+                        <p class="m-3">
+                            자바스크립트와 고도는 모두 동적타입 언어이지만 자바스크립트와 달리 GDScript는 정적타이핑 작성을 적극적으로 권장하며 성능에 영향을 미칩니다.
+                        </p>
+                        <p class="m-3">
+                            아래는 자바오브젝트에서 value을 가져왔을 시 GDScript에서 대응되는 타입입니다.
+                        </p>
+                        <ul class="m-4">
+                            <li>Boolean > bool</li>
+                            <li>Number > int / float</li>
+                            <li>String > String</li>
+                            <li>ArrayBuffer, TypedArray > PackedByteArray</li>
+                        </ul>
+                        <p class="m-3">그 밖의 함수는 Callable로 대응됩니다.</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div id="environment" class="m-3">
+                <div class="container-md bg-body-tertiary rounded-3 m-auto p-3">
+                    <h4>환경 구축</h4>
+                    <h6>
+                        개발자 또는 사용자가 사용할 수 있는 Godot Web 서버 환경 구축
+                    </h6>
+                    <div id="python" class="m-3">
+                        <div class="container-sm bg-body-secondary m-3 p-3 rounded-3" id="python">
+                            <h4>server.py</h4>
+                            <p></p>
+                            <p>server.py를 생성 후, 다음과 같이 작성하세요.</p>
+                            <div class="p-3 bg-black rounded-3">
+                                <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"> <div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div><div style="line-height:130%">14</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">from</span>&nbsp;http&nbsp;<span style="color:#ff3399">import</span>&nbsp;server</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">class</span>&nbsp;HTTPServer(server.SimpleHTTPRequestHandler):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">def</span>&nbsp;end_headers(<span style="color:#4be6fa">self</span>):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_my_headers()</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server.SimpleHTTPRequestHandler.end_headers(<span style="color:#4be6fa">self</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">def</span>&nbsp;send_my_headers(<span style="color:#4be6fa">self</span>):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Access-Control-Allow-Origin"</span>,&nbsp;<span style="color:#ffd500">"*"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Cross-Origin-Embedder-Policy"</span>,&nbsp;<span style="color:#ffd500">"require-corp"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Cross-Origin-Opener-Policy"</span>,<span style="color:#ffd500">"same-origin"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">if</span>&nbsp;__name__&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span><span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;<span style="color:#ffd500">'__main__'</span>:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;server.test(HandlerClass&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;HTTPServer)</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="netlify" class="m-3">
+                        <div class="container-sm bg-body-secondary m-3 p-3 rounded-3" id="netlify">
+                            <h4>Netlify</h4>
+                            <p>netlify.toml파일을 생성 후, 아래와 같이 코드를 추가해주세요.</p>
+                            <div class="p-3 bg-black rounded-3 ">
+                                <div class="colorscripter-code" style="color:#f5f2f2;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#ffffff;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%">[[headers]]</div><div style="padding:0 6px; white-space:pre; line-height:130%">for&nbsp;=&nbsp;"/*"</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">[headers.values]</div><div style="padding:0 6px; white-space:pre; line-height:130%">Cross-Origin-Opener-Policy&nbsp;=&nbsp;"same-origin"</div><div style="padding:0 6px; white-space:pre; line-height:130%">Cross-Origin-Embedder-Policy&nbsp;=&nbsp;"require-corp"</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="m-3">
+                <div class="container-md bg-body-secondary rounded-3 m-auto p-3">
+                    
+                </div>
+            </div>
+
+        </div>
     </main>
 
 
