@@ -16,9 +16,13 @@
             <form class="d-flex" role="search">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Examples</option>
+                    <optgroup label="Howto">
+                        <option value="installation">How to Install</option>
+                        <option value="setting-ide">IDE Setting for VSCode</option>
+                    </optgroup>
                     <optgroup label="valueOf">
-                        <option value="js_to_godot">JS to Godot</option>
-                        <option value="godot_to_js">Godot to JS</option>
+                        <option value="js-to-godot">JS to Godot</option>
+                        <option value="godot-to-js">Godot to JS</option>
                         <option value="process">Process to</option>
                     </optgroup>
                     <optgroup label="method">
@@ -31,135 +35,6 @@
         </div>
     </nav>
 
-    <canvas id="canvas">
-        HTML5 canvas appears to be unsupported in the current browser.<br >
-        Please try updating or use a different browser.
-    </canvas>
-    <div id="status" class="bg-primary">
-        <div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
-            <div id ="status-progress-inner"></div>
-        </div>
-        <div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div id="status-notice" class="godot" style="display: none;"></div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
-<script src="index.js"></script>
-<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":1,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":11200,"index.wasm":35708238},"focusCanvas":false,"gdextensionLibs":[]};
-const engine = new Engine(GODOT_CONFIG);
-
-(function () {
-const INDETERMINATE_STATUS_STEP_MS = 100;
-const statusProgress = document.getElementById('status-progress');
-const statusProgressInner = document.getElementById('status-progress-inner');
-const statusIndeterminate = document.getElementById('status-indeterminate');
-const statusNotice = document.getElementById('status-notice');
-
-let initializing = true;
-let statusMode = 'hidden';
-
-let animationCallbacks = [];
-function animate(time) {
-animationCallbacks.forEach((callback) => callback(time));
-requestAnimationFrame(animate);
-}
-requestAnimationFrame(animate);
-
-function animateStatusIndeterminate(ms) {
-const i = Math.floor((ms / INDETERMINATE_STATUS_STEP_MS) % 8);
-if (statusIndeterminate.children[i].style.borderTopColor === '') {
-    Array.prototype.slice.call(statusIndeterminate.children).forEach((child) => {
-        child.style.borderTopColor = '';
-    });
-    statusIndeterminate.children[i].style.borderTopColor = '#dfdfdf';
-}
-}
-
-function setStatusMode(mode) {
-if (statusMode === mode || !initializing) {
-    return;
-}
-[statusProgress, statusIndeterminate, statusNotice].forEach((elem) => {
-    elem.style.display = 'none';
-});
-animationCallbacks = animationCallbacks.filter(function (value) {
-    return (value !== animateStatusIndeterminate);
-});
-switch (mode) {
-case 'progress':
-    statusProgress.style.display = 'block';
-    break;
-case 'indeterminate':
-    statusIndeterminate.style.display = 'block';
-    animationCallbacks.push(animateStatusIndeterminate);
-    break;
-case 'notice':
-    statusNotice.style.display = 'block';
-    break;
-case 'hidden':
-    break;
-default:
-    throw new Error('Invalid status mode');
-}
-statusMode = mode;
-}
-
-function setStatusNotice(text) {
-while (statusNotice.lastChild) {
-    statusNotice.removeChild(statusNotice.lastChild);
-}
-const lines = text.split('\n');
-lines.forEach((line) => {
-    statusNotice.appendChild(document.createTextNode(line));
-    statusNotice.appendChild(document.createElement('br'));
-});
-}
-
-function displayFailureNotice(err) {
-const msg = err.message || err;
-console.error(msg);
-setStatusNotice(msg);
-setStatusMode('notice');
-initializing = false;
-}
-
-const missing = Engine.getMissingFeatures();
-if (missing.length !== 0) {
-const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
-displayFailureNotice(missingMsg + missing.join('\n'));
-} else {
-setStatusMode('indeterminate');
-engine.startGame({
-    'onProgress': function (current, total) {
-        if (total > 0) {
-            statusProgressInner.style.width = `${(current / total) * 100}%`;
-            setStatusMode('progress');
-            if (current === total) {
-                // wait for progress bar animation
-                setTimeout(() => {
-                    setStatusMode('indeterminate');
-                }, 500);
-            }
-        } else {
-            setStatusMode('indeterminate');
-        }
-    },
-}).then(() => {
-    setStatusMode('hidden');
-    initializing = false;
-}, displayFailureNotice);
-}
-}());
-</script>
 </html>

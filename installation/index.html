@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Installation</title>
+        <script src="https://cdn.jsdelivr.net/gh/proudparrot2/quick.js/quick.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link id='-gd-engine-icon' rel='icon' type='image/png' href='index.icon.png' />
+        <link rel='apple-touch-icon' href='index.apple-touch-icon.png'/>
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">Godot-Web</a>
+            <form class="d-flex" role="search">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Examples</option>
+                    <optgroup label="Howto">
+                        <option value="Installation">How to Install</option>
+                        <option value=""></option>
+                    </optgroup>
+                    <optgroup label="valueOf">
+                        <option value="js_to_godot">JS to Godot</option>
+                        <option value="godot_to_js">Godot to JS</option>
+                        <option value="process">Process to</option>
+                    </optgroup>
+                    <optgroup label="method">
+                        <option value="method">function</option>
+                        <option value="emit_signal">Signal 발생</option>
+                        <option value="eval">eval()</option>
+                    </optgroup>
+                  </select>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container-fluid m-auto p-3">
+        <div>
+            <h5>How to Install Godot</h5>
+            <p>
+                고도엔진을 초보자를 위한 설치가이드 문서입니다.
+            </p>
+        </div>
+    </div>
+
+    <div class="container-fluid me-3" id="install">
+        <div class="m-3 p-3 bg-info-subtle rounded-3 ">
+            <h5>Installation</h4>
+            <div class="p-3 bg-black rounded-3">
+                <p>
+                    &nbsp;먼저 GodotEngine을 설치하고 Project까지 간단하게 알아보겠습니다.
+                    <a href="https://godotengine.org/">GodotEngine</a> 홈페이지에서 고도엔진을 다운로드 받으세요.
+                </p>
+                <div class="m-3 container-fluid">
+                    <img class="img-fluid rounded-3" src="../captures/download.PNG" alt="../captures/download.PNG" />
+                </div>
+                <p>
+                    &nbsp;이곳에서 다운로드를 완료하셨다면, 압축을 풀고 exe파일을 실행시키면 됩니다.
+                    <br>
+                    &nbsp;Godot Engine - .NET 버전은 웹으로 내보내기를 지원하지 않지만, 이후에 업데이트되는 버전에서 지원이 약속되어 있습니다.
+                    3.x Mono에서는 웹으로 내보내는 것이 가능하지만, 아쉽게도 해당 문서에서는 4.x만을 다루니 Standard버전으로 진행하겠습니다.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid me-3" id="project">
+        <div class="m-3 p-3 bg-primary-subtle rounded-3">
+            <h5>
+                Project Settings
+            </h5>
+            <div class="p-3 bg-black rounded-3">
+                <p>
+                    &nbsp;실행까지 완료하셨다면 `새로 만들기`를 클릭하신 후, 프로젝트를 만들어주세요.
+                    <br>
+                    &nbsp;초기 프로젝트 설정을 `호환성`으로 맞춰주세요.
+                    
+                </p>
+                <div class="m-3 container-fluid">
+                    <img class="img-fluid rounded-3" src="../captures/mkdirProject.PNG" alt="#"/>
+                </div>
+                <p>프로젝트명과 경로는 한글이 포함되어도 무관합니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
