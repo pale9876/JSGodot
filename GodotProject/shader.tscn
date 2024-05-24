@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://eln1brjfvw8w"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_jvnc5"]
+[ext_resource type="Shader" path="res://lightcircles.gdshader" id="1_lol0m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r67fu"]
+shader = ExtResource("1_lol0m")
+shader_parameter/res = Vector2(600, 400)
+shader_parameter/a_index = Vector3(0.5, 0.5, 0.5)
+shader_parameter/b_index = Vector3(0.4, 0.7, 0.1)
+shader_parameter/c_index = Vector3(1, 1, 1)
+shader_parameter/d_index = Vector3(0.263, 0.416, 0.557)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_jvnc5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_r67fu")
+offset_right = 598.0
+offset_bottom = 400.0
