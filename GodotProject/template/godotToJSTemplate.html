@@ -20,8 +20,9 @@
 			
 			#canvas {
 				display: block;
-				margin: 0;
+				margin: auto;
 				color: white;
+				border-radius: 10px;
 			}
 			
 			#canvas:focus {
@@ -35,6 +36,8 @@
 				background-image: linear-gradient(to bottom, #403e48, #35333c);
 				border: 1px solid #45434e;
 				box-shadow: 0 0 1px 1px #2f2d35;
+				text-align: center;
+				border-radius: 10px;
 			}
 			
 			/* Status display */
@@ -140,7 +143,7 @@
 	<div class="container-fluid m-3 p-3">
 		<h5>Godot에서 JavaScript로</h5>
 		<div class="m-3 p-3 rounded-3 bg-primary-subtle">
-			<h5 class="lead" style="font-weight: bold;">구현하기 앞서, 간단하게 메인씬을 만들겠습니다.</h6>
+			<h5 class="lead" style="font-weight: bold;">구현하기에 앞서, 간단하게 메인씬을 만들겠습니다.</h6>
 			<div class="m-auto p-3">
 				<p class="bg-success">
 					&nbsp;이 문서는 Chromium기반 웹 브라우저를 기준으로 합니다.
@@ -201,21 +204,23 @@
 				</div>
 				<p>
 					&nbsp;작성을 완료하셨다면 웹으로 내보낼 때에 작성한 메세지들을 각각 콘솔과 팝업 알림을 통하여 작성한 내용 또는 문자배열(String)을 확인하실 수 있습니다.
+
 				</p>
 			</div>
 
 		</div>
-		<div>
-			<canvas id="canvas">
+		<div class="m-3 p-3 bg-primary-subtle rounded-3">
+			<h5>Result</h5>
+			<canvas id="canvas" class="bg-primary">
 				HTML5 canvas appears to be unsupported in the current browser.<br >
 				Please try updating or use a different browser.
 			</canvas>
 		</div>
-		<div id="status" class="m-3 p-3 rounded-3 bg-primary-subtle align-content-center">
-			<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
+		<div id="status" class="m-3 p-3 rounded-3 bg-primary-subtle" style="text-align: center;">
+			<div id="status-progress" style="display: none; text-align: center;" oncontextmenu="event.preventDefault();">
 				<div id ="status-progress-inner"></div>
 			</div>
-			<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
+			<div id="status-indeterminate" style="display: none; text-align: center;" oncontextmenu="event.preventDefault();">
 				<div></div>
 				<div></div>
 				<div></div>
@@ -225,9 +230,9 @@
 				<div></div>
 				<div></div>
 			</div>
-			<div id="status-notice" class="godot" style="display: none;"></div>
+			<div id="status-notice" class="godot" style="display: none; text-align: center;"></div>
 		</div>
-		<div id="monitor" class="rounded-3 m-3 p-3 m-auto bg-success text-white">
+		<div id="monitor" class="rounded-3 m-3 p-3 bg-success text-white text-center">
 			<dl class="row">
 				<dt class="col-sm-3">캐릭터의 위치</dt>
 				<dd class="col-sm-9">Vector2(<label id="pos-x">x</label>, <label id="pos-y">y</label>)</dt>

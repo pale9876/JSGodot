@@ -54,7 +54,7 @@ func get_input() -> void:
 	else:
 		dir.z = 0
 		dir.w = 0
-	
+
 func output() -> void:
 	var pos_x:JavaScriptObject = JavaScriptBridge.create_object("Number", floor(global_position.x))
 	var pos_y:JavaScriptObject = JavaScriptBridge.create_object("Number", floor(global_position.y))
@@ -69,6 +69,7 @@ func output() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	reset_pos()
+	window.alert("스크린을 벗어났습니다. 리셋하겠습니다.")
 
 func reset_pos() -> void:
 	global_position = Vector2(300,200)
