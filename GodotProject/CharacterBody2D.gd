@@ -14,9 +14,9 @@ func _physics_process(delta: float) -> void:
 	get_input()
 
 	if input != Vector2.ZERO:
-		current_velo = lerp(Vector2.ZERO, input * spd, .277)
+		current_velo = lerp(current_velo, input * spd, .115)
 	else:
-		current_velo = lerp(current_velo, Vector2.ZERO, .277)
+		current_velo = lerp(current_velo, Vector2.ZERO, .115)
 
 	velocity = current_velo
 
@@ -56,21 +56,16 @@ func get_input() -> void:
 		dir.w = 0
 	
 func output() -> void:
-	var monitor_x:JavaScriptObject = JavaScriptBridge.get_interface("monitor_x")
-	var monitor_y:JavaScriptObject = JavaScriptBridge.get_interface("monitor_y")
-	
-	monitor_x.value = pos.x
-	monitor_y.value = pos.y
-	
-	var monitor_dir_x:JavaScriptObject = JavaScriptBridge.get_interface("dir_x")
-	var monitor_dir_y:JavaScriptObject = JavaScriptBridge.get_interface("dir_y")
-	var monitor_dir_z:JavaScriptObject = JavaScriptBridge.get_interface("dir_z")
-	var monitor_dir_w:JavaScriptObject = JavaScriptBridge.get_interface("dir_w")
-	
-	monitor_dir_x.value = dir.x
-	monitor_dir_y.value = dir.y
-	monitor_dir_z.value = dir.z
-	monitor_dir_w.value = dir.w
+	var pos_x:JavaScriptObject = JavaScriptBridge.create_object("Number", floor(global_position.x))
+	var pos_y:JavaScriptObject = JavaScriptBridge.create_object("Number", floor(global_position.y))
+
+	var dir_x:JavaScriptObject = JavaScriptBridge.create_object("Number", dir.x)
+	var dir_y:JavaScriptObject = JavaScriptBridge.create_object("Number", dir.y)
+	var dir_z:JavaScriptObject = JavaScriptBridge.create_object("Number", dir.z)
+	var dir_w:JavaScriptObject = JavaScriptBridge.create_object("Number", dir.w)
+
+	window.set_pos(pos_x, pos_y)
+	window.set_dir(dir_x, dir_y, dir_z, dir_w)
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	reset_pos()
