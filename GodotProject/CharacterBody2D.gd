@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-var window:JavaScriptObject = JavaScriptBridge.get_interface("console")
-var console:JavaScriptObject = JavaScriptBridge.get_interface("window")
+var window:JavaScriptObject = JavaScriptBridge.get_interface("window")
+var console:JavaScriptObject = JavaScriptBridge.get_interface("console")
 
 var current_velo:Vector2 = Vector2.ZERO
 var spd:float = 500.
@@ -9,10 +9,6 @@ var spd:float = 500.
 var pos:Vector2
 var input:Vector2
 var dir:Vector4
-
-func _ready() -> void:
-	console.alert("Hello,Console")
-	window.alert("Hello, JavaScript")
 
 func _physics_process(delta: float) -> void:
 	get_input()

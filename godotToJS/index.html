@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HelloGodot</title>
+        <script src="https://cdn.jsdelivr.net/gh/proudparrot2/quick.js/quick.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link id='-gd-engine-icon' rel='icon' type='image/png' href='index.icon.png' />
+        <link rel='apple-touch-icon' href='index.apple-touch-icon.png'/>
+		<style>
+			body {
+				touch-action: none;
+				margin: 0;
+				border: 0 none;
+				padding: 0;
+				text-align: left;
+				background-color: black;
+			}
+			
+			#canvas {
+				display: block;
+				margin: 0;
+				color: white;
+			}
+			
+			#canvas:focus {
+				outline: none;
+			}
+			
+			.godot {
+				font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
+				color: #e0e0e0;
+				background-color: #3b3943;
+				background-image: linear-gradient(to bottom, #403e48, #35333c);
+				border: 1px solid #45434e;
+				box-shadow: 0 0 1px 1px #2f2d35;
+			}
+			
+			/* Status display */
+			
+			#status {
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				/* don't consume click events - make children visible explicitly */
+				visibility: hidden;
+			}
+			
+			#status-progress {
+				width: 366px;
+				height: 7px;
+				background-color: #38363A;
+				border: 1px solid #444246;
+				padding: 1px;
+				box-shadow: 0 0 2px 1px #1B1C22;
+				border-radius: 2px;
+				visibility: visible;
+			}
+			
+			@media only screen and (orientation:portrait) {
+				#status-progress {
+					width: 61.8%;
+				}
+			}
+			
+			#status-progress-inner {
+				height: 100%;
+				width: 0;
+				box-sizing: border-box;
+				transition: width 0.5s linear;
+				background-color: #202020;
+				border: 1px solid #222223;
+				box-shadow: 0 0 1px 1px #27282E;
+				border-radius: 3px;
+			}
+			
+			#status-indeterminate {
+				height: 42px;
+				visibility: visible;
+				position: relative;
+			}
+			
+			#status-indeterminate > div {
+				width: 4.5px;
+				height: 0;
+				border-style: solid;
+				border-width: 9px 3px 0 3px;
+				border-color: #2b2b2b transparent transparent transparent;
+				transform-origin: center 21px;
+				position: absolute;
+			}
+			
+			#status-indeterminate > div:nth-child(1) { transform: rotate( 22.5deg); }
+			#status-indeterminate > div:nth-child(2) { transform: rotate( 67.5deg); }
+			#status-indeterminate > div:nth-child(3) { transform: rotate(112.5deg); }
+			#status-indeterminate > div:nth-child(4) { transform: rotate(157.5deg); }
+			#status-indeterminate > div:nth-child(5) { transform: rotate(202.5deg); }
+			#status-indeterminate > div:nth-child(6) { transform: rotate(247.5deg); }
+			#status-indeterminate > div:nth-child(7) { transform: rotate(292.5deg); }
+			#status-indeterminate > div:nth-child(8) { transform: rotate(337.5deg); }
+			
+			#status-notice {
+				margin: 0 100px;
+				line-height: 1.3;
+				visibility: visible;
+				padding: 4px 6px;
+				visibility: visible;
+			}
+		</style>
+    </head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">Godot-Web</a>
+            <form class="d-flex" role="search">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Examples</option>
+                    <optgroup label="valueOf">
+                        <option value="js_to_godot">JS to Godot</option>
+                        <option value="godot_to_js">Godot to JS</option>
+                        <option value="process">Process to</option>
+                    </optgroup>
+                    <optgroup label="method">
+                        <option value="method">function</option>
+                        <option value="emit_signal">Signal 발생</option>
+                        <option value="eval">eval()</option>
+                    </optgroup>
+                  </select>
+            </form>
+        </div>
+    </nav>
+
+    <canvas id="canvas">
+        HTML5 canvas appears to be unsupported in the current browser.<br >
+        Please try updating or use a different browser.
+    </canvas>
+
+    <div id="status" class="rounded-3 bg-primary">
+        <div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
+            <div id ="status-progress-inner"></div>
+        </div>
+        <div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="status-notice" class="godot" style="display: none;"></div>
+    </div>
+	<hr class="border border-danger border-2 opacity-50">
+	<div class="container-fluid m-auto p-3 bg-primary">
+		<h5>Godot에서 JavaScript로</h5>
+		<div class="m-3 p-3 rounded-3 bg-primary-subtle">
+			<h5>먼저 간단하게 웹에서 디버그를 하는 방법입니다.</h6>
+			<p class="bg-success">
+				&nbsp;이 문서는 Chromium기반 웹 브라우저를 기준으로 합니다.
+			</p>
+			<p>
+				&nbsp;
+			</p>
+			<p>
+				&nbsp;웹으로 내보내진 프로그램은 자바스크립트가 콘솔로 메세지를 내보내는 것과 같은 경로로 메세지를 내보냅니다. 개발자도구를 열어보는 것으로 엔진과 자바스크립트가 발생시키는 오류와 경고를 모두 볼 수 있습니다.<br>
+			</p>
+			<p>
+				&nbsp;또는 사용자가 고도엔진에서 window객체의 alert(msg), console의 log(msg)를 쓸 수 있습니다.<br>
+				&nbsp;window와 console객체를 GDScript에서 JavaScriptObject로 정의하면 해당 객체를 엔진 내에서 참조할 수 있습니다.
+			</p>
+			<div class="p-3 rounded-3 bg-black">
+				<div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#ffffff;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;extends&nbsp;CharacterBody2D</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;window:JavaScriptObject&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">=</span>&nbsp;JavaScriptBridge.get_interface(<span style="color:#63a35c">"window"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;console:JavaScriptObject&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">=</span>&nbsp;JavaScriptBridge.get_interface(<span style="color:#63a35c">"conosole"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;...</span></div></div><div style="text-align:right;margin-top:-13px;margin-right:5px;font-size:9px;font-style:italic"><a href="http://colorscripter.com/info#e" target="_blank" style="color:#e5e5e5text-decoration:none">Colored by Color Scripter</a></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+			</div>
+			<p>
+				&nbsp;다음 코드와 같이, GDScript에서 메소드를 불러올 수 있습니다. _ready()에서 작성하여 활용해보세요.
+			</p>
+
+			<div class="p-3 rounded-3 bg-black">
+				<div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#ffffff;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;extend&nbsp;CharacterBody2D</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">func&nbsp;_ready()&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">-</span><span style="color:#0086b3"></span><span style="color:#a71d5d">&gt;</span>&nbsp;void:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;console.log(<span style="color:#63a35c">"Hello,Console"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;window.alert(<span style="color:#63a35c">"Hello,&nbsp;JavaScript"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;...</span></div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+			</div>
+			<p>
+				&nbsp;
+			</p>
+		</div>
+	</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+<script src="index.js"></script>
+<script>
+
+    var monitor_x = 0.
+    var monitor_y = 0.
+    var dir_x = 0.
+    var dir_y = 0.
+    var dir_z = 0.
+    var dir_w = 0.
+
+	function monitoring_pos(x,y) {
+
+	}
+
+	function monitoring_dir(x,y,z,w) {
+
+	}
+
+</script>
+<script>
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":1,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":11200,"index.wasm":35708238},"focusCanvas":false,"gdextensionLibs":[]};
+const engine = new Engine(GODOT_CONFIG);
+
+(function () {
+const INDETERMINATE_STATUS_STEP_MS = 100;
+const statusProgress = document.getElementById('status-progress');
+const statusProgressInner = document.getElementById('status-progress-inner');
+const statusIndeterminate = document.getElementById('status-indeterminate');
+const statusNotice = document.getElementById('status-notice');
+
+let initializing = true;
+let statusMode = 'hidden';
+
+let animationCallbacks = [];
+function animate(time) {
+animationCallbacks.forEach((callback) => callback(time));
+requestAnimationFrame(animate);
+}
+requestAnimationFrame(animate);
+
+function animateStatusIndeterminate(ms) {
+const i = Math.floor((ms / INDETERMINATE_STATUS_STEP_MS) % 8);
+if (statusIndeterminate.children[i].style.borderTopColor === '') {
+    Array.prototype.slice.call(statusIndeterminate.children).forEach((child) => {
+        child.style.borderTopColor = '';
+    });
+    statusIndeterminate.children[i].style.borderTopColor = '#dfdfdf';
+}
+}
+
+function setStatusMode(mode) {
+if (statusMode === mode || !initializing) {
+    return;
+}
+[statusProgress, statusIndeterminate, statusNotice].forEach((elem) => {
+    elem.style.display = 'none';
+});
+animationCallbacks = animationCallbacks.filter(function (value) {
+    return (value !== animateStatusIndeterminate);
+});
+switch (mode) {
+case 'progress':
+    statusProgress.style.display = 'block';
+    break;
+case 'indeterminate':
+    statusIndeterminate.style.display = 'block';
+    animationCallbacks.push(animateStatusIndeterminate);
+    break;
+case 'notice':
+    statusNotice.style.display = 'block';
+    break;
+case 'hidden':
+    break;
+default:
+    throw new Error('Invalid status mode');
+}
+statusMode = mode;
+}
+
+function setStatusNotice(text) {
+while (statusNotice.lastChild) {
+    statusNotice.removeChild(statusNotice.lastChild);
+}
+const lines = text.split('\n');
+lines.forEach((line) => {
+    statusNotice.appendChild(document.createTextNode(line));
+    statusNotice.appendChild(document.createElement('br'));
+});
+}
+
+function displayFailureNotice(err) {
+const msg = err.message || err;
+console.error(msg);
+setStatusNotice(msg);
+setStatusMode('notice');
+initializing = false;
+}
+
+const missing = Engine.getMissingFeatures();
+if (missing.length !== 0) {
+const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
+displayFailureNotice(missingMsg + missing.join('\n'));
+} else {
+setStatusMode('indeterminate');
+engine.startGame({
+    'onProgress': function (current, total) {
+        if (total > 0) {
+            statusProgressInner.style.width = `${(current / total) * 100}%`;
+            setStatusMode('progress');
+            if (current === total) {
+                // wait for progress bar animation
+                setTimeout(() => {
+                    setStatusMode('indeterminate');
+                }, 500);
+            }
+        } else {
+            setStatusMode('indeterminate');
+        }
+    },
+}).then(() => {
+    setStatusMode('hidden');
+    initializing = false;
+}, displayFailureNotice);
+}
+}());
+</script>
+</html>
