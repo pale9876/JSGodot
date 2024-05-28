@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>HelloGodot</title>
+        <title>GodotToHtml5</title>
         <script src="https://cdn.jsdelivr.net/gh/proudparrot2/quick.js/quick.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link id='-gd-engine-icon' rel='icon' type='image/png' href='index.icon.png' />
@@ -136,87 +136,131 @@
         </div>
     </nav>
 
-    <canvas id="canvas">
-        HTML5 canvas appears to be unsupported in the current browser.<br >
-        Please try updating or use a different browser.
-    </canvas>
-
-    <div id="status" class="rounded-3 bg-primary">
-        <div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
-            <div id ="status-progress-inner"></div>
-        </div>
-        <div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div id="status-notice" class="godot" style="display: none;"></div>
-    </div>
-	<hr class="border border-danger border-2 opacity-50">
-	<div class="container-fluid m-auto p-3 bg-primary">
+	<hr class="border border-danger border-2 opacity-100">
+	<div class="container-fluid m-3 p-3">
 		<h5>Godot에서 JavaScript로</h5>
 		<div class="m-3 p-3 rounded-3 bg-primary-subtle">
-			<h5>먼저 간단하게 웹에서 디버그를 하는 방법입니다.</h6>
-			<p class="bg-success">
-				&nbsp;이 문서는 Chromium기반 웹 브라우저를 기준으로 합니다.
-			</p>
-			<p>
-				&nbsp;깊게 들어가기에 앞서 간단하게 사용법을 익히기 위해, 엔진을 시작하면 처음 배우는 캐릭터 움직임을 활용할 예정입니다.<br>
-				&nbsp;먼저 노드 구조를 다음과 같이 배치해주세요.
-			</p>
-			<div class="bg-black p-3 rounded-3">
-				Node2D(MainScene)<br>
-				ㄴ CharacterBody2D<br>
-				&emsp;ㄴCollisionShape2D<br>
-				&emsp;ㄴSprite2D<br>
-				&emsp;ㄴVisibleOnScreenNotifier2D<br>
-			</div>
-			<p>
-				&nbsp;웹으로 내보내진 프로그램은 자바스크립트가 콘솔로 메세지를 내보내는 것과 같은 경로로 메세지를 내보냅니다. 개발자도구를 열어보는 것으로 엔진과 자바스크립트가 발생시키는 오류와 경고를 모두 볼 수 있습니다.<br>
-			</p>
-			<p>
-				&nbsp;또는 사용자가 고도엔진에서 window객체의 alert(msg), console의 log(msg)를 쓸 수 있습니다.<br>
-				&nbsp;window와 console객체를 GDScript에서 JavaScriptObject로 정의하면 해당 객체를 엔진 내에서 참조할 수 있습니다.
-			</p>
-			<div class="p-3 rounded-3 bg-black">
-				<div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#ffffff;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;extends&nbsp;CharacterBody2D</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;window:JavaScriptObject&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">=</span>&nbsp;JavaScriptBridge.get_interface(<span style="color:#63a35c">"window"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;console:JavaScriptObject&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">=</span>&nbsp;JavaScriptBridge.get_interface(<span style="color:#63a35c">"conosole"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;...</span></div></div><div style="text-align:right;margin-top:-13px;margin-right:5px;font-size:9px;font-style:italic"><a href="http://colorscripter.com/info#e" target="_blank" style="color:#e5e5e5text-decoration:none">Colored by Color Scripter</a></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
-			</div>
-			<p>
-				&nbsp;다음 코드와 같이, GDScript에서 메소드를 불러올 수 있습니다. _ready()에서 작성하여 활용해보세요.
-			</p>
+			<h5 class="lead" style="font-weight: bold;">구현하기 앞서, 간단하게 메인씬을 만들겠습니다.</h6>
+			<div class="m-auto p-3">
+				<p class="bg-success">
+					&nbsp;이 문서는 Chromium기반 웹 브라우저를 기준으로 합니다.
+				</p>
+				
+				<div class="bg-info-subtle p-3 rounded-3">
+					<p>
+						&nbsp;들어가기에 앞서 간단하게 사용법을 익히기 위해, 엔진을 시작하면 처음 배우는 캐릭터 움직임을 활용할 예정입니다.<br>
+						&nbsp;먼저 노드 구조를 다음과 같이 배치해주세요.
+					</p>
+					<div class="bg-black m-auto p-3 rounded-3">
+						
+							<a href="https://docs.godotengine.org/en/stable/classes/class_node2d.html">Node2D</a>(MainScene)<br>
+							ㄴ <a href="https://docs.godotengine.org/en/stable/classes/class_characterbody2d.html">CharacterBody2D</a><br>
+							&emsp;ㄴ<a href="https://docs.godotengine.org/en/stable/classes/class_collisionshape2d.html">CollisionShape2D</a><br>
+							&emsp;ㄴ<a href="https://docs.godotengine.org/en/stable/classes/class_sprite2d.html">Sprite2D</a><br>
+							&emsp;ㄴ<a href="https://docs.godotengine.org/en/stable/classes/class_visibleonscreennotifier2d.html">VisibleOnScreenNotifier2D</a>
+							<div class="m-auto p-3 rounded-3">
+								<img src="../captures/mainSceneSet.PNG"/>
+							</div>
+					</div>
+					<p>
+						&nbsp;위의 캡쳐와 같이 노드를 배치하셨다면 CharacterBody2D에 스크립트를 추가해주세요. <br>
+					</p>
+					<p>
+						&nbsp;캐릭터바디에 사용자의 방향키 입력에 따른 이동기능을 추가함과 동시에 웹에 해당 캐릭터의 위치와 플레이어의 입력을 출력하는 기능을 만들 것입니다.
+						아래와 같이 스크립트를 추가해주세요.
+					</p>
+					
+					<div class="p-3 rounded-3 bg-black">
+						<div class="colorscripter-code" style="color:#000000;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #ffffff"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div><div style="line-height:130%">14</div><div style="line-height:130%">15</div><div style="line-height:130%">16</div><div style="line-height:130%">17</div><div style="line-height:130%">18</div><div style="line-height:130%">19</div><div style="line-height:130%">20</div><div style="line-height:130%">21</div><div style="line-height:130%">22</div><div style="line-height:130%">23</div><div style="line-height:130%">24</div><div style="line-height:130%">25</div><div style="line-height:130%">26</div><div style="line-height:130%">27</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;extend&nbsp;CharacterBody2D</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;current_velo:Vector2&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;Vector2.ZERO</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;spd:float&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;<span style="color:#c10aff">500.</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;input:Vector2</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">func&nbsp;_physics_process(delta:&nbsp;float)&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">-</span><span style="color:#0086b3"></span><span style="color:#ff3399">&gt;</span>&nbsp;void:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;get_input()</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">if</span>&nbsp;input&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">!</span><span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;Vector2.ZERO:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_velo&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;lerp(Vector2.ZERO,&nbsp;input&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">*</span>&nbsp;spd,&nbsp;.<span style="color:#c10aff">277</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">else</span>:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;current_velo&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;lerp(current_velo,&nbsp;Vector2.ZERO,&nbsp;.<span style="color:#c10aff">277</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;velocity&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;current_velo</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">func&nbsp;get_input()&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">-</span><span style="color:#0086b3"></span><span style="color:#ff3399">&gt;</span>&nbsp;void:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;input&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;Input.get_vector(</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ffd500">"ui_left"</span>,</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ffd500">"ui_right"</span>,</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ffd500">"ui_up"</span>,</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ffd500">"ui_down"</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;...</span></div></div><div style="text-align:right;margin-top:-13px;margin-right:5px;font-size:9px;font-style:italic"><a href="http://colorscripter.com/info#e" target="_blank" style="color:#4f4f4ftext-decoration:none">Colored by Color Scripter</a></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+					</div>
+					<p>
+						&nbsp;방향키를 눌렀을 때, 캐릭터가 이동하는지 확인하세요. (F5 또는 F6을 눌러 실행시킬 수 있습니다.)
+					</p>
+					<p>
+						&nbsp;완료되었다면 다음으로 JavaScriptBridge 클래스를 이용하여 자바스크립트의 변수나 메서드들을 GDScript로 불러와보겠습니다.
+					</p>
+				</div>
 
-			<div class="p-3 rounded-3 bg-black">
-				<div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#ffffff;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;extend&nbsp;CharacterBody2D</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">func&nbsp;_ready()&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">-</span><span style="color:#0086b3"></span><span style="color:#a71d5d">&gt;</span>&nbsp;void:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;console.log(<span style="color:#63a35c">"Hello,Console"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;window.alert(<span style="color:#63a35c">"Hello,&nbsp;JavaScript"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;...</span></div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+				<div class="m-auto p-2">
+					<p>
+						&nbsp;웹으로 내보내진 프로그램은 자바스크립트가 콘솔로 메세지를 내보내는 것과 같은 경로로 메세지를 내보냅니다. 개발자도구를 열어보는 것으로 엔진과 자바스크립트가 발생시키는 오류와 경고를 모두 볼 수 있습니다.<br>
+						&nbsp;또는 사용자가 고도엔진에서 window객체의 alert(msg), console의 log(msg)를 쓸 수 있습니다.<br>
+						&nbsp;window와 console객체를 GDScript에서 JavaScriptObject로 정의하면 해당 객체를 엔진 내에서 참조할 수 있습니다.
+					</p>
+				</div>
+
+				<div class="p-3 rounded-3 bg-black">
+					<div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#ffffff;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;extends&nbsp;CharacterBody2D</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;window:JavaScriptObject&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">=</span>&nbsp;JavaScriptBridge.get_interface(<span style="color:#63a35c">"window"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;console:JavaScriptObject&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">=</span>&nbsp;JavaScriptBridge.get_interface(<span style="color:#63a35c">"conosole"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;...</span></div></div><div style="text-align:right;margin-top:-13px;margin-right:5px;font-size:9px;font-style:italic"><a href="http://colorscripter.com/info#e" target="_blank" style="color:#e5e5e5text-decoration:none">Colored by Color Scripter</a></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+				</div>
+				<p>
+					&nbsp;다음 코드와 같이, GDScript에서 메소드를 불러올 수 있습니다. _ready()에서 작성하여 활용해보세요.
+				</p>
+	
+				<div class="p-3 rounded-3 bg-black">
+					<div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#ffffff;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;extend&nbsp;CharacterBody2D</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">func&nbsp;_ready()&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">-</span><span style="color:#0086b3"></span><span style="color:#a71d5d">&gt;</span>&nbsp;void:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;console.log(<span style="color:#63a35c">"Hello,Console"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;window.alert(<span style="color:#63a35c">"Hello,&nbsp;JavaScript"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;...</span></div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+				</div>
+				<p>
+					&nbsp;작성을 완료하셨다면 웹으로 내보낼 때에 작성한 메세지들을 각각 콘솔과 팝업 알림을 통하여 작성한 내용 또는 문자배열(String)을 확인하실 수 있습니다.
+				</p>
 			</div>
-			<p>
-				&nbsp;이렇게 작성하시면 웹으로 내보낼 때, 작성한 메세지들을 각각 콘솔과 팝업 알림을 통하여 확인하실 수 있습니다.
-			</p>
+
+		</div>
+		<div>
+			<canvas id="canvas">
+				HTML5 canvas appears to be unsupported in the current browser.<br >
+				Please try updating or use a different browser.
+			</canvas>
+		</div>
+		<div id="status" class="m-3 p-3 rounded-3 bg-primary-subtle">
+			<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
+				<div id ="status-progress-inner"></div>
+			</div>
+			<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div id="status-notice" class="godot" style="display: none;"></div>
+		</div>
+		<div id="monitor" class="rounded-3 m-3 p-3 m-auto bg-white text-black">
+			<dl class="row">
+				<dt class="col-sm-3">캐릭터의 위치</dt>
+				<dd class="col-sm-9">Vector2(<label>x</label>, <label>y</label>)</dt>
+				<dt class="col-sm-3">플레이어 조작</dt>
+				<dd class="col-sm-9">(<label>Left</label>,<label>Right</label>,<label>Down</label>,<label>Up</label>)</dd>
+			</dl>
 		</div>
 	</div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 <script src="index.js"></script>
 <script>
+	
 
-    var monitor_x = 0.
-    var monitor_y = 0.
+    var velo_x = 0.
+    var velo_y = 0.
     var dir_x = 0.
     var dir_y = 0.
     var dir_z = 0.
     var dir_w = 0.
 
-	function monitoring_pos(x,y) {
-
+	function set_pos(x,y) {
+		velo_x = x;
+		velo_y = y;
 	}
 
-	function monitoring_dir(x,y,z,w) {
-
+	function set_dir(x,y,z,w) {
+		dir_x = x
+		dir_y = y
+		dir_z = z
+		dir_w = w
 	}
 
 </script>

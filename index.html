@@ -15,8 +15,8 @@
                 <select class="form-select" aria-label="Default select example">
                     <option selected>Examples</option>
                     <optgroup label="valueOf">
-                        <option value="js_to_godot">JS to Godot</option>
-                        <option value="godot_to_js">Godot to JS</option>
+                        <option value="js_to_godot">HTML5 to Godot</option>
+                        <option value="godot_to_js">Godot to HTML5</option>
                         <option value="process">Process to</option>
                     </optgroup>
                     <optgroup label="method">
@@ -46,26 +46,28 @@
                     </p>
 
                     <div class="list-group bg-body p-3 m-3">
-                        <a href="#jsbridge" class="list-group-item list-group-item-action list-group-item-info">JavaScriptBridge에 대하여</a>
+                        <a href="#jsbridge" class="list-group-item list-group-item-action list-group-item-info">GDScript와 JavaScript</a>
                         <a href="#environment" class="list-group-item list-group-item-action list-group-item-info">테스트 환경 구축</a>
                     </div>
                 </div>
             </div>
-    
+
             <div id="jsbridge" class="m-3">
                 <div class="container-md bg-body-tertiary rounded-3 p-3">
                     <h3 class="mb-3">
-                        JavaScriptBridge
+                        @GDScript 2.0와 JavaScript
                     </h3>
                     <div class="container-md rounded-3 m-auto p-3 bg-dark-subtle">
                         <h6 class="m-3">
-                            이 문단은 공식문서에 서술된 <a class="badge rounded-pill text-bg-light" href="https://docs.godotengine.org/ko/4.x/classes/class_javascriptbridge.html">JavaScriptBridge</a> 클래스 설명의 보완입니다.
+                            &nbsp;이 문서는 공식문서에 서술된 <a class="badge rounded-pill text-bg-light" href="https://docs.godotengine.org/ko/4.x/classes/class_javascriptbridge.html">JavaScriptBridge</a> 클래스 문서를 보충설명 및 응용하는 방법을 알리기 위해 만들었습니다.
                         </h6>
                         <p class="m-3">
-                            Godot Engine 공식 문서의 <a class="badge rounded-pill text-bg-danger" href="https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html#calling-javascript-from-script">Export for the Web</a> 한 번 읽어주시길 바랍니다.
+                            &nbsp;Godot Engine을 웹으로 내보내는 방법은 공식 문서의 <a class="badge rounded-pill text-bg-danger" href="https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html#calling-javascript-from-script">Export for the Web</a> 한 번 읽어주시길 바랍니다.
                         </p>
                         <p class="m-3">
-                            자바스크립트와 고도는 모두 동적타입 언어이지만 자바스크립트와 달리 GDScript는 정적타이핑 작성을 적극적으로 권장하며 성능에 영향을 미칩니다.
+                            &nbsp;자바스크립트와 고도는 모두 동적 언어이지만 자바스크립트와 달리 GDScript는 정적타이핑 작성을 적극적으로 권장하며 성능에 영향을 미칩니다.<br>
+                            &nbsp;이에 비해, 자바스크립트는 사용자가 타입을 지정하는 방법이 마땅히 없으며, 필요하지도 않습니다.<br>
+                            
                         </p>
                         <p class="m-3">
                             아래는 자바오브젝트에서 값(value)을 가져왔을 시 GDScript에서 대응되는 타입입니다.
@@ -76,7 +78,7 @@
                             <li>String > String</li>
                             <li>ArrayBuffer, TypedArray > PackedByteArray</li>
                         </ul>
-                        <p class="m-3">함수는 Callable로 대응됩니다. 만약 GDScript가 JS에서 해당 타입의 오브젝트들을 불러오게 된다면 대응되는 타입을 반환하게 됩니다.</p>
+                        <p class="m-3">&nbsp;함수는 Callable로 대응됩니다. 만약 GDScript가 JS에서 해당 타입의 오브젝트들을 불러오게 된다면 대응되는 타입을 반환하게 됩니다.</p>
                     </div>
                 </div>
             </div>
@@ -115,13 +117,14 @@
             <h6>Referenced By</h6>
             <div class="container-fluid m-3 p-3">
                 <p>
+                    <a href="https://www.youtube.com/watch?v=Q8G3oyZwbsE">Lets Learn Godot 3.4! How Does the JavaScript</a>
+                    <br>
                     <a href="https://docs.netlify.com/routing/headers/">Netlify Docs</a>
                     <br>
                     <a href="https://www.youtube.com/watch?v=Prronempn1Q">Godot 4: How to test web builds locally</a>
                     <br>
                     <a href="https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html">Exporting for the Web</a>
                     <br>
-                    <a href=""></a>
                 </p>
             </div>
         </div>
