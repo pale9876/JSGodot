@@ -1,9 +1,13 @@
 extends Node2D
 
+var window:JavaScriptObject = JavaScriptBridge.get_interface("window")
+
 var a:Vector3 = Vector3(.5, .5, .5)
 var b:Vector3 = Vector3(.4, .7, .1)
 var c:Vector3 = Vector3(1., 1., 1.)
 var d:Vector3 = Vector3(.263, .416, .557)
+
+var t_scale:float = .4
 
 @onready var color_rect: ColorRect = $ColorRect
 
@@ -24,9 +28,12 @@ func _process(delta: float) -> void:
 	d.y = JavaScriptBridge.get_interface("d_g").valueOf()
 	d.z = JavaScriptBridge.get_interface("d_b").valueOf()
 
-	color_rect.material.set("shader_parameter/a_index",a)
-	color_rect.material.set("shader_parameter/a_index",b)
-	color_rect.material.set("shader_parameter/a_index",c)
-	color_rect.material.set("shader_parameter/a_index",d)
-	
-	
+	t_scale = JavaScriptBridge.get_interface("t_scale").valueOf()
+
+	color_rect.material.set("shader_parameter/a_index", a)
+	color_rect.material.set("shader_parameter/b_index", b)
+	color_rect.material.set("shader_parameter/c_index", c)
+	color_rect.material.set("shader_parameter/d_index", d)
+	color_rect.material.set("shader_parameter/time_scale", t_scale)
+
+	window.set_values()

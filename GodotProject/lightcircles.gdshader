@@ -5,6 +5,7 @@ uniform vec3 a_index = vec3(.5,.5,.5);
 uniform vec3 b_index = vec3(.4,.7,.1);
 uniform vec3 c_index = vec3(1.,1.,1.);
 uniform vec3 d_index = vec3(.263,.416,.557);
+uniform float time_scale:hint_range(0.0, 4.0, 0.01) = .4;
 
 vec3 palette(float t)
 {
@@ -23,7 +24,7 @@ void fragment()
 		uv = fract(uv * 1.5) - .5;
 		float d = length(uv) * exp(-length(uv0));
 		
-		vec3 col = palette(length(uv0) + i * .4 + TIME * .4);
+		vec3 col = palette(length(uv0) + i * .4 + TIME * time_scale);
 		
 		d = sin(d * 8. + TIME) / 8.;
 		d = abs(d);
