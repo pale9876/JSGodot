@@ -157,130 +157,47 @@
         </div>
         <div id="status-notice" class="godot" style="display: none;"></div>
     </div>
-	
-	<div class="p-3 m-3 container-fluid">
-		<h5>Web to Godot</h5>
-		<p>해당 문서에서는 사용자가 웹에서 고도로 값을 보내는 방법에 대하여 이야기합니다.</p>
-	</div>
-	<div class="p-3 mt-3 container-sm">
-		<p></p>
-		<div>
-			<div class="container-fluid text-center bg-primary-subtle m-auto rounded-3 ">
-				<div class="row">
-				<h5>var a: Vector3</h5>
-				  	<div class="col m-1">
-					  	<label class="form-label" for="a_r">a.r value</label>
-					  	<input class="form-control" type="number" name="a_r" id="a_r" placeholder="0.5" value="0.5">
-				  	</div>
-				  	<div class="col m-1">
-					  	<label class="form-label" for="a_g">a.g value</label>
-					  	<input class="form-control" type="number" name="a_g" id="a_g" placeholder=".5" value ="0.5">
-				  	</div>
-				  	<div class="col m-1">
-					  	<label class="form-label" for="a_b">a.b value</label>
-					  	<input class="form-control" type="number" name="a_b" id="a_b" placeholder=".5" value="0.5">
-				  	</div>
+	<hr class="border border-danger border-2 opacity-50">
+	<div class="container-fluid m-auto p-3 bg-primary">
+		<h5>Godot에서 JavaScript로</h5>
+		<div class="m-3 p-3 rounded-3 bg-primary-subtle">
+			<h5>먼저 간단하게 웹에서 디버그를 하는 방법입니다.</h6>
+			<p class="bg-success">
+				&nbsp;이 문서는 Chromium기반 웹 브라우저를 기준으로 합니다.
+			</p>
+			<p>
+				&nbsp;웹으로 내보내진 프로그램은 자바스크립트가 콘솔로 메세지를 내보내는 것과 같은 경로로 메세지를 내보냅니다. 개발자도구를 열어보는 것으로 엔진과 자바스크립트가 발생시키는 오류와 경고를 모두 볼 수 있습니다.<br>
+			</p>
+			<p>
+				&nbsp;또는 사용자가 고도엔진에서 window객체의 alert(msg), console의 log(msg)를 쓸 수 있습니다.<br>
+				&nbsp;window와 console객체를 GDScript에서 JavaScriptObject로 정의하면 해당 객체를 엔진 내에서 참조할 수 있습니다.
+				<div class="m-3 p-3 rounded-3 bg-black">
+					<div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;extend&nbsp;Node</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;window:JavaScriptObject&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;JavaScriptBridge.get_interface(<span style="color:#ffd500">"window"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;console:JavaScriptObject&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;JavaScriptBridge.get_interface(<span style="color:#ffd500">"conosole"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;...</span></div></div><div style="text-align:right;margin-top:-13px;margin-right:5px;font-size:9px;font-style:italic"><a href="http://colorscripter.com/info#e" target="_blank" style="color:#4f4f4ftext-decoration:none">Colored by Color Scripter</a></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
 				</div>
-			</div>
-			<div class="container-fluid text-center bg-warning-subtle m-auto rounded-3 ">
-				<div class="row">
-				<h5>var b: Vector3</h5>
-				  	<div class="col m-1">
-						<label for="b_r" class="form-label">b.r value</label>
-						<input class="form-control" type="number" name="b_r" id="b_r" placeholder=".4" value="0.4">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="b_g">b.g value</label>
-						<input class="form-control"  type="number" name="b_g" id="b_g" placeholder=".7" value="0.7">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="b_b">b.b value</label>
-						<input class="form-control"  type="number" name="b_b" id="b_b" placeholder=".1" value="0.1">
-				  	</div>
-				</div>
-			</div>
-			<div class="container-fluid text-center bg-danger-subtle m-auto rounded-3">
-				<div class="row">
-				<h5>var c: Vector3</h5>
-				  	<div class="col m-1">
-						<label class="form-label" for="c_r">c.r value</label>
-						<input class="form-control" type="number" name="c_r" id="c_r" placeholder="1." value="1.0">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="c_g">c.g value</label>
-						<input class="form-control" type="number" name="c_g" id="c_g" placeholder="1." value="1.0">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="c_b">c.b value</label>
-						<input class="form-control"  type="number" name="c_b" id="c_b" placeholder="1." value="1.0">
-				  	</div>
-				</div>
-			</div>
-			<div class="container-fluid text-center bg-info-subtle m-auto rounded-3">
-				<div class="row">
-				<h5>var d: Vector3</h5>
-				  	<div class="col m-1">
-						<label class="form-label" for="d_r">d.r value</label>
-						<input class="form-control" type="number" name="d_r" id="d_r" placeholder=".263" value="0.263">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="d_g">d.g value</label>
-						<input class="form-control" type="number" name="d_g" id="d_g" placeholder=".416" value="0.416">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="d_b">d.b value</label>
-						<input class="form-control" type="number" name="d_b" id="d_b" placeholder=".557" value="0.557">
-				  	</div>
-				</div>
-			</div>
-			<button type="submit" onclick="set_values()">Submit</button>
+			</p>
 		</div>
 	</div>
 
+	
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 <script src="index.js"></script>
 <script>
-	const ar_elem = document.getElementById("a_r");
-	const ag_elem = document.getElementById("a_g");
-	const ab_elem = document.getElementById("a_b");
-	const br_elem = document.getElementById("b_r");
-	const bg_elem = document.getElementById("b_g");
-	const bb_elem = document.getElementById("b_b");
-	const cr_elem = document.getElementById("c_r");
-	const cg_elem = document.getElementById("c_g");
-	const cb_elem = document.getElementById("c_b");
-	const dr_elem = document.getElementById("d_r");
-	const dg_elem = document.getElementById("d_g");
-	const db_elem = document.getElementById("d_b");
-	
-	var a_r = .5;
-	var a_g = .5;
-	var a_b = .5;
-	var b_r = .4;
-	var b_g = .7;
-	var b_b = .1;
-	var c_r = 1.;
-	var c_g = 1.;
-	var c_b = 1.;
-	var d_r = .263;
-	var d_g = .416;
-	var d_b = .557;
 
-	function set_values(){
-		a_r = Number(ar_elem.value);
-		a_g = Number(ag_elem.value);
-		a_b = Number(ab_elem.value);
-		b_r = Number(br_elem.value);
-		b_g = Number(bg_elem.value);
-		b_b = Number(bb_elem.value);
-		c_r = Number(cr_elem.value);
-		c_g = Number(cg_elem.value);
-		c_b = Number(cb_elem.value);
-		d_r = Number(dr_elem.value);
-		d_g = Number(dg_elem.value);
-		d_b = Number(db_elem.value);
+    var monitor_x = 0.
+    var monitor_y = 0.
+    var dir_x = 0.
+    var dir_y = 0.
+    var dir_z = 0.
+    var dir_w = 0.
+
+	function monitoring_pos(x,y) {
+
+	}
+
+	function monitoring_dir(x,y,z,w) {
+
 	}
 
 </script>
