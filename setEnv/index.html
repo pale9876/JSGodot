@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/gh/proudparrot2/quick.js/quick.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+            <a href="#" class="navbar-brand">Godot-Web</a>
+            <form class="d-flex" role="search">
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+					  Docs
+					</button>
+					<ul class="dropdown-menu">
+					  <li><a class="dropdown-item" href="/installation/index.html">Install Godot</a></li>
+					  <li><a class="dropdown-item" href="#">Set Environment</a></li>
+                      <li><hr class="dropdown-divider"></li>
+					  <li><a class="dropdown-item" href="/godotToJs/index.html">GodotToWeb</a></li>
+					  <li><a class="dropdown-item" href="#">Example Build</a></li>
+                      <li><hr class="dropdown-divider"></li>
+					  <li><a class="dropdown-item" href="/webToGodot/index.html">WebToGodot</a></li>
+					  <li><a class="dropdown-item" href="#">Example Build</a></li>
+
+					</ul>
+				  </div>
+            </form>
+        </div>
+    </nav>
+
+    
+<div class="rounded-3 p-3 m-auto bg-black">
+    <h4>환경 구축</h4>
+    <h6>
+        개발자 또는 사용자가 사용할 수 있는 Godot Web 서버 환경 구축
+    </h6>
+    <div id="python" class="m-3">
+        <div class="container-sm bg-body-secondary m-3 p-3 rounded-3" id="python">
+            <h4>server.py</h4>
+            <p>server.py를 생성 후, 다음과 같이 작성하세요.</p>
+            <div class="p-3 bg-black rounded-3">
+                <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"> <div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div><div style="line-height:130%">14</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">from</span>&nbsp;http&nbsp;<span style="color:#ff3399">import</span>&nbsp;server</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">class</span>&nbsp;HTTPServer(server.SimpleHTTPRequestHandler):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">def</span>&nbsp;end_headers(<span style="color:#4be6fa">self</span>):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_my_headers()</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;server.SimpleHTTPRequestHandler.end_headers(<span style="color:#4be6fa">self</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">def</span>&nbsp;send_my_headers(<span style="color:#4be6fa">self</span>):</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Access-Control-Allow-Origin"</span>,&nbsp;<span style="color:#ffd500">"*"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Cross-Origin-Embedder-Policy"</span>,&nbsp;<span style="color:#ffd500">"require-corp"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">self</span>.send_header(<span style="color:#ffd500">"Cross-Origin-Opener-Policy"</span>,<span style="color:#ffd500">"same-origin"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#ff3399">if</span>&nbsp;__name__&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span><span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;<span style="color:#ffd500">'__main__'</span>:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;server.test(HandlerClass&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;HTTPServer)</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+            </div>
+        </div>
+    </div>
+    <div id="netlify" class="m-3">
+        <div class="container-sm bg-body-secondary m-3 p-3 rounded-3" id="netlify">
+            <h4>Netlify</h4>
+            <p>netlify.toml파일을 생성 후, 아래와 같이 코드를 추가해주세요.</p>
+            <div class="p-3 bg-black rounded-3 ">
+                <div class="colorscripter-code" style="color:#f5f2f2;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#ffffff;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%">[[headers]]</div><div style="padding:0 6px; white-space:pre; line-height:130%">for&nbsp;=&nbsp;"/*"</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">[headers.values]</div><div style="padding:0 6px; white-space:pre; line-height:130%">Cross-Origin-Opener-Policy&nbsp;=&nbsp;"same-origin"</div><div style="padding:0 6px; white-space:pre; line-height:130%">Cross-Origin-Embedder-Policy&nbsp;=&nbsp;"require-corp"</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+            </div>
+         </div>
+    </div>
+</div>
+
+</body>
+
+</html>
