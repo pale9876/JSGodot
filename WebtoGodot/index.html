@@ -127,14 +127,31 @@
 					  <li><a class="dropdown-item" href="/installation/index.html">How to Install</a></li>
 					  <li><a class="dropdown-item" href="/godotToJs/index.html">GodotToWeb</a></li>
 					  <li><a class="dropdown-item" href="/webToGodot/index.html">WebToGodot</a></li>
-
 					</ul>
 				  </div>
             </form>
         </div>
     </nav>
 
-    <canvas class="p-3 bg-primary rounded-3" id="canvas">
+
+	
+	<div class="p-3 m-auto container-fluid">
+		<h5>Web to Godot</h5>
+		<div class="p-3 m-auto rounded-3 bg-dark-subtle">
+			<p>GodotEngine이 웹에서 값을 가져오는 방법에 대해서 서술합니다.<p>
+			<div class="p-3 m-auto bg-secondary-subtle rounded-3 border border-3">
+				<p>
+					&nbsp;자바 스크립트에서 임의의 var q를 만들고 그 값을 10.으로 정합니다. 해당 변수의 값을 가져와 콘솔에 출력하는 방법은 아래와 같습니다.
+				</p>
+				<div class="p-3" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#4be6fa">print</span>(avaScriptBridge.get_interface(<span style="color:#ffd500">"q"</span>).valueOf())</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+				<p>
+					이를 print함수에 넣으면 콘솔에서 q의 값을 볼 수 있습니다.
+				</p>
+			</div>
+		</div>
+	</div>
+
+    <canvas class="p-3 border border-3 rounded-3" id="canvas">
         HTML5 canvas appears to be unsupported in the current browser.<br >
         Please try updating or use a different browser.
     </canvas>
@@ -155,23 +172,10 @@
         </div>
         <div id="status-notice" class="godot" style="display: none;"></div>
     </div>
-	
-	<div class="p-3 m-auto container-fluid">
-		<h5>Web to Godot</h5>
-		<div class="p-3 m-auto rounded-3 bg-dark-subtle">
-			<h6>해당 문서에서는 웹이 Godot Engine으로 값을 전송하는 방법에 대해서 이야기합니다.<h6>
-			<div class="p-3 m-auto bg-secondary-subtle rounded-3">
-				<p>
-					&nbsp;JavaScript 가 지정한 객체의 속성을 고도엔진으로 보내기 위해서는 GDScript가 통로를 열어야합니다.<br>
-					&nbsp;사용
-				</p>
-			</div>
-		</div>
-	</div>
-	<div class="p-3 mt-3 container-sm">
-		<p></p>
+
+	<div class="p-3 mt-3 container" style="width:600px">
 		<div>
-			<div class="container-fluid text-center bg-info-subtle m-auto rounded-3 border border-3 border-info ">
+			<div class="text-center bg-info-subtle m-auto rounded-3 border border-3 border-info ">
 				<div class="row p-1 m-auto">
 				<h5>var time_scale: float</h5>
 				  	<div class="col m-1">
@@ -180,7 +184,7 @@
 				  	</div>
 				</div>
 			</div>
-			<div class="container-fluid text-center bg-primary-subtle m-auto rounded-3 border border-3 border-primary ">
+			<div class="text-center bg-primary-subtle m-auto rounded-3 border border-3 border-primary ">
 				<div class="row p-1 m-auto">
 				<h5>var a: Vector3</h5>
 				  	<div class="col m-1">
@@ -197,7 +201,7 @@
 				  	</div>
 				</div>
 			</div>
-			<div class="container-fluid text-center bg-warning-subtle m-auto rounded-3 border border-3 border-warning">
+			<div class="text-center bg-warning-subtle m-auto rounded-3 border border-3 border-warning">
 				<div class="row">
 				<h5>var b: Vector3</h5>
 				  	<div class="col m-1">
@@ -214,7 +218,7 @@
 				  	</div>
 				</div>
 			</div>
-			<div class="container-fluid text-center bg-danger-subtle m-auto rounded-3 border border-3 border-danger">
+			<div class="text-center bg-danger-subtle m-auto rounded-3 border border-3 border-danger">
 				<div class="row">
 				<h5>var c: Vector3</h5>
 				  	<div class="col m-1">
