@@ -10,7 +10,7 @@ shader_parameter/a_index = Vector3(0.5, 0.5, 0.5)
 shader_parameter/b_index = Vector3(0.4, 0.7, 0.1)
 shader_parameter/c_index = Vector3(1, 1, 1)
 shader_parameter/d_index = Vector3(0.263, 0.416, 0.557)
-shader_parameter/time_scale = 2.0
+shader_parameter/time_scale = 1.06
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_jvnc5")
