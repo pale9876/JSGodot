@@ -122,19 +122,16 @@
         <div class="container-fluid">
             <a href="#" class="navbar-brand">Godot-Web</a>
             <form class="d-flex" role="search">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Examples</option>
-                    <optgroup label="valueOf">
-                        <option value="js_to_godot">JS to Godot</option>
-                        <option value="godot_to_js">Godot to JS</option>
-                        <option value="process">Process to</option>
-                    </optgroup>
-                    <optgroup label="method">
-                        <option value="method">function</option>
-                        <option value="emit_signal">Signal 발생</option>
-                        <option value="eval">eval()</option>
-                    </optgroup>
-                  </select>
+				<div class="btn-group" role="group">
+					<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+					  Docs
+					</button>
+					<ul class="dropdown-menu">
+					  <li><a class="dropdown-item" href="/installation/index.html">How to Install</a></li>
+					  <li><a class="dropdown-item" href="/godotToJs/index.html">GodotToWeb</a></li>
+					  <li><a class="dropdown-item" href="/webToGodot/index.html">WebToGodot</a></li>
+					</ul>
+				  </div>
             </form>
         </div>
     </nav>
