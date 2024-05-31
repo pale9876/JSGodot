@@ -1,17 +1,13 @@
 extends Control
 
-@onready var count: VBoxContainer = $HBoxContainer/Count
-@onready var result: VBoxContainer = $HBoxContainer/Result
-
+@onready var count: RichTextLabel = $HBoxContainer/VBoxContainer2/Panel/Count
+@onready var result: RichTextLabel = $HBoxContainer/VBoxContainer/Panel/Result
 
 func _ready()->void:
 	GlobalSignal.press_button.connect(on_press_test_button)
+	count.add_text(str(GlobalSignal.emit_count))
+	result.add_text("Success")
 
 func on_press_test_button() -> void:
-	var _count:Label = Label.new()
-	count.add_child(_count)
-	_count.text = str(GlobalSignal.emit_count)
-	
-	var _result:Label = Label.new()
-	result.add_child(_result)
-	_result.text = "Success"
+	count.add_text(str(GlobalSignal.emit_count))
+	result.add_text("Success")
