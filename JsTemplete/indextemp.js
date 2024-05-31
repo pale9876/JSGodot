@@ -40,51 +40,55 @@ function set_top_table() {
 
     var ddMenu = document.createElement("ul")
     ddMenu.className = "dropdown-menu"
+
+    var dditemStr = "dropdown-item"
+    var dividerStr = "dropdown-divider"
+
+    var li_1 = document.createElement("li")
+    var a_1 = document.createElement("a")
+    li_1.append(a_1)
+    a_1.className = "dropdown-item"
+    a_1.href = "/installation/index.html"
+    a_1.innerHTML = "Install Godot"
+
+    ddMenu.append(li_3)
+    ddMenu.append(li_4)
+    ddMenu.append(li_5)
     
-    ddMenu.append(
-        function(){
-            var dditemStr = "dropdown-item"
-            var dividerStr = "dropdown-divider"
+    var li_2 = document.createElement("li")
+    var a_2 = document.createElement("a")
+    create_li(li_2, a_2, dditemStr, "/setEnv/index.html",'Set Environment')
+    ddMenu.append(li_2)
+    
+    
+    var divide_li = document.createElement("li")
+    var hr = document.createElement("hr")
+    hr.className = "dropdown-divider"
+    divide_li.append(hr)
+    ddMenu.append(divide_li)
 
-            var li_1 = document.createElement("li")
-            var a_1 = document.createElement("a")
-            li_1.append(a_1)
-            a_1.className = "dropdown-item"
-            a_1.href = "/installation/index.html"
-            a_1.innerHTML = "Install Godot"
+    var li_3 = document.createElement("li")
+    var a_3 = document.createElement('a')
+    create_li(li_3, a_2, dditemStr, "/godotToWeb/index.html", 'GodotToWeb')
 
-            var li_2 = document.createElement("li")
-            var a_2 = document.createElement("a")
-            create_li(li_2, a_2, dditemStr, "/setEnv/index.html",'Set Environment')
-            
-            var divide_li = document.createElement("li")
-            var hr = document.createElement("hr")
-            hr.className = "dropdown-divider"
-            divide_li.append(hr)
+    var li_4 = document.createElement("li")
+    var a_4 = document.createElement('a')
 
-            var li_3 = document.createElement("li")
-            var a_3 = document.createElement('a')
-            create_li(li_3, a_2, dditemStr, "/godotToWeb/index.html", 'GodotToWeb')
+    var li_5 = document.createElement("li")
+    var a_5 = document.createElement('a')
 
-            var li_4 = document.createElement("li")
-            var a_4 = document.createElement('a')
+    var li_6 = document.createElement("li")
+    var a_6 = document.createElement('a')
 
-            var li_5 = document.createElement("li")
-            var a_5 = document.createElement('a')
+    var li_7 = document.createElement("li")
+    var a_7 = document.createElement('a')
 
-            var li_6 = document.createElement("li")
-            var a_6 = document.createElement('a')
+    var li_8 = document.createElement("li")
+    var a_8 = document.createElement('a')
 
-            var li_7 = document.createElement("li")
-            var a_7 = document.createElement('a')
+    var li_9 = document.createElement("li")
+    var a_9 = document.createElement('a')
 
-            var li_8 = document.createElement("li")
-            var a_8 = document.createElement('a')
-
-            var li_9 = document.createElement("li")
-            var a_9 = document.createElement('a')
-        }
-    )
 
     btnGroup.append(dropBtn, ddMenu)
     _container.append(_a, btnGroup)
@@ -99,6 +103,3 @@ function create_li(li, a, className, ref, listName){
     a.innerHTML = listName
 }
 
-function create_divider(){
-
-}
