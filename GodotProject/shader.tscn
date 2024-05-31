@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://eln1brjfvw8w"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_jvnc5"]
-[ext_resource type="Shader" path="res://lightcircles.gdshader" id="1_lol0m"]
+[ext_resource type="Shader" path="res://Shader/lightcircles.gdshader" id="1_lol0m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r67fu"]
 shader = ExtResource("1_lol0m")

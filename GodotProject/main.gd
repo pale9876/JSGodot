@@ -38,4 +38,3 @@ func _process(delta: float) -> void:
 	color_rect.material.set("shader_parameter/c_index", c)
 	color_rect.material.set("shader_parameter/d_index", d)
 	color_rect.material.set("shader_parameter/time_scale", t_scale)
-
