@@ -9740,7 +9740,7 @@ function _godot_js_display_window_size_get(p_width, p_height) {
 
 function _godot_js_display_window_title_set(p_data) {
  if (ENVIRONMENT_IS_PTHREAD) return proxyToMainThread(90, 1, p_data);
- document.title = GodotRuntime.parseString(p_data);
+//  document.title = GodotRuntime.parseString(p_data);
 }
 
 function _godot_js_eval(p_js, p_use_global_ctx, p_union_ptr, p_byte_arr, p_byte_arr_write, p_callback) {

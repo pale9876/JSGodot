@@ -4,7 +4,7 @@ const top_table = document.getElementById("top-table");
     <a href="#" class="navbar-brand">Godot-Web</a>
     <div class="btn-group dropstart" role="group">
         <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Docs</button>
-        <ul class="dropdown-menu ">
+        <ul class="dropdown-menu " id="ddmenu">
             <li><a class="dropdown-item" href="/installation/index.html">Install Godot</a></li>
             <li><a class="dropdown-item" href="/setEnv/index.html">Set Environment</a></li>
             <li><hr class="dropdown-divider"></li>
@@ -21,25 +21,16 @@ const top_table = document.getElementById("top-table");
     </div>
 </div>
 */
+
+set_top_table();
+
 function set_top_table() {
-    const nav = document.createElement("top-table")
-
-    var _container = document.createElement("div")
-    _container.className = "container-fluid"
-    var _a = document.createElement("a")
-    _a.className = 'navbar-brand'
-    _a.innerHTML = 'Godot-Web'
-
-    var btnGroup = document.createElement("div")
-    btnGroup.className = "btn-group dropstart"
-    btnGroup.role = "group"
-
-    var dropBtn = document.createElement("div")
-    dropBtn.className = "btn btn-dark dropdown-toggle"
-    dropBtn.innerHTML = "Docs"
-
+   
     var ddMenu = document.createElement("ul")
     ddMenu.className = "dropdown-menu"
+    ddMenu.id = "ddmenu"
+
+    btnGroup.append(ddMenu)
 
     var dditemStr = "dropdown-item"
     var dividerStr = "dropdown-divider"
@@ -50,16 +41,12 @@ function set_top_table() {
     a_1.className = "dropdown-item"
     a_1.href = "/installation/index.html"
     a_1.innerHTML = "Install Godot"
+    ddMenu.append(li_1)
 
-    ddMenu.append(li_3)
-    ddMenu.append(li_4)
-    ddMenu.append(li_5)
-    
     var li_2 = document.createElement("li")
     var a_2 = document.createElement("a")
     create_li(li_2, a_2, dditemStr, "/setEnv/index.html",'Set Environment')
     ddMenu.append(li_2)
-    
     
     var divide_li = document.createElement("li")
     var hr = document.createElement("hr")
@@ -89,11 +76,6 @@ function set_top_table() {
     var li_9 = document.createElement("li")
     var a_9 = document.createElement('a')
 
-
-    btnGroup.append(dropBtn, ddMenu)
-    _container.append(_a, btnGroup)
-
-    nav.append(_container)
 }
 
 function create_li(li, a, className, ref, listName){
@@ -102,4 +84,3 @@ function create_li(li, a, className, ref, listName){
     a.href = ref
     a.innerHTML = listName
 }
-
