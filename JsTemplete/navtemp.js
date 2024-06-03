@@ -41,20 +41,3 @@ function create_divider() {
     divide_li.append(hr)
     ddMenu.append(divide_li)
 }
-
-/* !!!!Preview HTML Code(미리보기)!!!!
-                <ul class="dropdown-menu " id="ddmenu">
-                    <li><a class="dropdown-item" href="/installation/index.html">Install Godot</a></li>
-                    <li><a class="dropdown-item" href="/setEnv/index.html">Set Environment</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="/godotToJs/index.html">GodotToWeb</a></li>
-                    <li><a class="dropdown-item" href="#">Example - 1</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="/webToGodot/index.html">WebToGodot</a></li>
-                    <li><a class="dropdown-item" href="#">Example - 2</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="/Debug/index.html">Debugging</a></li>
-                    <li><a class="dropdown-item" href="/Debug/index.html">AutoLoad</a></li>
-                    <li><a class="dropdown-item" href="/Debug/index.html">Using Signal</a></li>
-                </ul>
-*/
