@@ -10,29 +10,18 @@
         <link rel='apple-touch-icon' href='index.apple-touch-icon.png'/>
     </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-secondary">
+  <nav class="navbar navbar-expand-lg bg-body-secondary" id="top-table">
     <div class="container-fluid">
-        <a href="#" class="navbar-brand">Godot-Web</a>
-    <div class="btn-group dropstart" role="group">
-      <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Docs</button>
-    <ul class="dropdown-menu ">
-      <li><a class="dropdown-item" href="/installation/index.html">Install Godot</a></li>
-      <li><a class="dropdown-item" href="/setEnv/index.html">Set Environment</a></li>
-                <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="/godotToJs/index.html">GodotToWeb</a></li>
-      <li><a class="dropdown-item" href="#">Example - 1</a></li>
-                <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="/webToGodot/index.html">WebToGodot</a></li>
-      <li><a class="dropdown-item" href="#">Example - 2</a></li>
-                <li><hr class="dropdown-divider"></li>
-      <li><a class="dropdown-item" href="/Debug/index.html">Debugging</a></li>
-      <li><a class="dropdown-item" href="/Debug/index.html">AutoLoad</a></li>
-      <li><a class="dropdown-item" href="/Debug/index.html">Using Signal</a></li>
-    </ul>
-  </div>
+        <a href="./index.html" class="navbar-brand" id="">Godot-Web</a>
+      <div class="btn-group dropstart" id="btn-group" role="group">
+        <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Docs</button>
+                <!--using nav templete-->
+      </div>
     </div>
-</nav>
+  </nav>
 
+    <!-- <script src="JsTemplete/navtemp.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
