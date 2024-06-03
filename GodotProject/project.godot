@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="ShaderInteractive"
+config/name="WebInteractive"
 run/main_scene="res://test_signal.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
