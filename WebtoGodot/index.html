@@ -129,9 +129,10 @@
 	
 	<div class="p-3 m-auto container-fluid">
 		<div class="p-3 m-auto rounded-3 bg-dark-subtle">
-			<h5>웹에서 만든 인터페이스로 조작 구현<h5></h5>
-
+			
 			<div class="p-3 m-auto bg-secondary-subtle rounded-3 border border-3">
+				<h3>Shader 변형 조작 구현</h3>
+
 				<p>
 					&nbsp;해당 예제에서는 임의의 셰이더를 변형할 수 있는 기능을 만들어 보겠습니다.
 					예제의 코드는 다음과 같습니다.
@@ -161,116 +162,118 @@
 				<div class="border border-secondary bg-black p-3 m-3 rounded-3">
 					<div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div><div style="line-height:130%">9</div><div style="line-height:130%">10</div><div style="line-height:130%">11</div><div style="line-height:130%">12</div><div style="line-height:130%">13</div><div style="line-height:130%">14</div><div style="line-height:130%">15</div><div style="line-height:130%">16</div><div style="line-height:130%">17</div><div style="line-height:130%">18</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%">extends&nbsp;Node2D</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;window:JavaScriptObject&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;JavaScriptBridge.get_interface(<span style="color:#ffd500">"window"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;a:Vector3</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;b:Vector3</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;c:Vector3</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;d:Vector3</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;t_scale:float&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;.<span style="color:#c10aff">4</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">@onready&nbsp;var&nbsp;color_rect:&nbsp;ColorRect&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;$ColorRect</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">func&nbsp;_ready()&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">-</span><span style="color:#0086b3"></span><span style="color:#ff3399">&gt;</span>&nbsp;void:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;a&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;color_rect.material.get(<span style="color:#ffd500">"shader_parameter/a_index"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;b&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;color_rect.material.get(<span style="color:#ffd500">"shader_parameter/b_index"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;c&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;color_rect.material.get(<span style="color:#ffd500">"shader_parameter/c_index"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;d&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">=</span>&nbsp;color_rect.material.get(<span style="color:#ffd500">"shader_parameter/d_index"</span>)</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
 				</div>
+
 				<p class="m-3">
 
 				</p>
+
+				<canvas class="p-3 border border-3 rounded-3" id="canvas">
+					HTML5 canvas appears to be unsupported in the current browser.<br >
+					Please try updating or use a different browser.
+				</canvas>
+			
+				<div id="status" class="rounded-3 bg-primary">
+					<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
+						<div id ="status-progress-inner"></div>
+					</div>
+					<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+					<div id="status-notice" class="godot" style="display: none;"></div>
+				</div>
+			
+				<div class="p-3 mt-3 container" style="width:600px">
+					<div>
+						<div class="text-center bg-info-subtle m-auto rounded-3 border border-3 border-info ">
+							<div class="row p-1 m-auto">
+							<h5>var time_scale: float</h5>
+								  <div class="col m-1">
+									  <label class="form-label" for="t-scale">Time-Scale value</label>
+									  <input class="form-range" type="range" min="0.0" max="4.0" step=".001" name="t-scale" id="t-scale" placeholder=".4" value="0.4">
+								  </div>
+							</div>
+						</div>
+						<div class="text-center bg-primary-subtle m-auto rounded-3 border border-3 border-primary ">
+							<div class="row p-1 m-auto">
+							<h5>var a: Vector3</h5>
+								  <div class="col m-1">
+									  <label class="form-label" for="a_r">a.r value</label>
+									  <input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="a_r" id="a_r" placeholder="0.5" value="0.5">
+								  </div>
+								  <div class="col m-1">
+									  <label class="form-label" for="a_g">a.g value</label>
+									  <input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="a_g" id="a_g" placeholder=".5" value ="0.5">
+								  </div>
+								  <div class="col m-1">
+									  <label class="form-label" for="a_b">a.b value</label>
+									  <input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="a_b" id="a_b" placeholder=".5" value="0.5">
+								  </div>
+							</div>
+						</div>
+						<div class="text-center bg-warning-subtle m-auto rounded-3 border border-3 border-warning">
+							<div class="row">
+							<h5>var b: Vector3</h5>
+								  <div class="col m-1">
+									<label for="b_r" class="form-label">b.r value</label>
+									<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="b_r" id="b_r" placeholder=".4" value="0.4">
+								  </div>
+								  <div class="col m-1">
+									<label class="form-label" for="b_g">b.g value</label>
+									<input class="form-range"  type="range" min="0.0" max="1.0" step=".001" name="b_g" id="b_g" placeholder=".7" value="0.7">
+								  </div>
+								  <div class="col m-1">
+									<label class="form-label" for="b_b">b.b value</label>
+									<input class="form-range"  type="range" min="0.0" max="1.0" step=".001" name="b_b" id="b_b" placeholder=".1" value="0.1">
+								  </div>
+							</div>
+						</div>
+						<div class="text-center bg-danger-subtle m-auto rounded-3 border border-3 border-danger">
+							<div class="row">
+							<h5>var c: Vector3</h5>
+								  <div class="col m-1">
+									<label class="form-label" for="c_r">c.r value</label>
+									<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="c_r" id="c_r" placeholder="1." value="1.0">
+								  </div>
+								  <div class="col m-1">
+									<label class="form-label" for="c_g">c.g value</label>
+									<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="c_g" id="c_g" placeholder="1." value="1.0">
+								  </div>
+								  <div class="col m-1">
+									<label class="form-label" for="c_b">c.b value</label>
+									<input class="form-range"  type="range" min="0.0" max="1.0" step=".001" name="c_b" id="c_b" placeholder="1." value="1.0">
+								  </div>
+							</div>
+						</div>
+						<div class="container-fluid text-center bg-success-subtle m-auto rounded-3 border border-3 border-success">
+							<div class="row">
+							<h5>var d: Vector3</h5>
+								  <div class="col m-1">
+									<label class="form-label" for="d_r">d.r value</label>
+									<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="d_r" id="d_r" placeholder=".263" value="0.263">
+								  </div>
+								  <div class="col m-1">
+									<label class="form-label" for="d_g">d.g value</label>
+									<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="d_g" id="d_g" placeholder=".416" value="0.416">
+								  </div>
+								  <div class="col m-1">
+									<label class="form-label" for="d_b">d.b value</label>
+									<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="d_b" id="d_b" placeholder=".557" value="0.557">
+								  </div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 
-    <canvas class="p-3 border border-3 rounded-3" id="canvas">
-        HTML5 canvas appears to be unsupported in the current browser.<br >
-        Please try updating or use a different browser.
-    </canvas>
-
-    <div id="status" class="rounded-3 bg-primary">
-        <div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
-            <div id ="status-progress-inner"></div>
-        </div>
-        <div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div id="status-notice" class="godot" style="display: none;"></div>
-    </div>
-
-	<div class="p-3 mt-3 container" style="width:600px">
-		<div>
-			<div class="text-center bg-info-subtle m-auto rounded-3 border border-3 border-info ">
-				<div class="row p-1 m-auto">
-				<h5>var time_scale: float</h5>
-				  	<div class="col m-1">
-					  	<label class="form-label" for="t-scale">Time-Scale value</label>
-					  	<input class="form-range" type="range" min="0.0" max="4.0" step=".001" name="t-scale" id="t-scale" placeholder=".4" value="0.4">
-				  	</div>
-				</div>
-			</div>
-			<div class="text-center bg-primary-subtle m-auto rounded-3 border border-3 border-primary ">
-				<div class="row p-1 m-auto">
-				<h5>var a: Vector3</h5>
-				  	<div class="col m-1">
-					  	<label class="form-label" for="a_r">a.r value</label>
-					  	<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="a_r" id="a_r" placeholder="0.5" value="0.5">
-				  	</div>
-				  	<div class="col m-1">
-					  	<label class="form-label" for="a_g">a.g value</label>
-					  	<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="a_g" id="a_g" placeholder=".5" value ="0.5">
-				  	</div>
-				  	<div class="col m-1">
-					  	<label class="form-label" for="a_b">a.b value</label>
-					  	<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="a_b" id="a_b" placeholder=".5" value="0.5">
-				  	</div>
-				</div>
-			</div>
-			<div class="text-center bg-warning-subtle m-auto rounded-3 border border-3 border-warning">
-				<div class="row">
-				<h5>var b: Vector3</h5>
-				  	<div class="col m-1">
-						<label for="b_r" class="form-label">b.r value</label>
-						<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="b_r" id="b_r" placeholder=".4" value="0.4">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="b_g">b.g value</label>
-						<input class="form-range"  type="range" min="0.0" max="1.0" step=".001" name="b_g" id="b_g" placeholder=".7" value="0.7">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="b_b">b.b value</label>
-						<input class="form-range"  type="range" min="0.0" max="1.0" step=".001" name="b_b" id="b_b" placeholder=".1" value="0.1">
-				  	</div>
-				</div>
-			</div>
-			<div class="text-center bg-danger-subtle m-auto rounded-3 border border-3 border-danger">
-				<div class="row">
-				<h5>var c: Vector3</h5>
-				  	<div class="col m-1">
-						<label class="form-label" for="c_r">c.r value</label>
-						<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="c_r" id="c_r" placeholder="1." value="1.0">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="c_g">c.g value</label>
-						<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="c_g" id="c_g" placeholder="1." value="1.0">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="c_b">c.b value</label>
-						<input class="form-range"  type="range" min="0.0" max="1.0" step=".001" name="c_b" id="c_b" placeholder="1." value="1.0">
-				  	</div>
-				</div>
-			</div>
-			<div class="container-fluid text-center bg-success-subtle m-auto rounded-3 border border-3 border-success">
-				<div class="row">
-				<h5>var d: Vector3</h5>
-				  	<div class="col m-1">
-						<label class="form-label" for="d_r">d.r value</label>
-						<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="d_r" id="d_r" placeholder=".263" value="0.263">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="d_g">d.g value</label>
-						<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="d_g" id="d_g" placeholder=".416" value="0.416">
-				  	</div>
-				  	<div class="col m-1">
-						<label class="form-label" for="d_b">d.b value</label>
-						<input class="form-range" type="range" min="0.0" max="1.0" step=".001" name="d_b" id="d_b" placeholder=".557" value="0.557">
-				  	</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -280,15 +283,19 @@
 
 <script>
 	const t_elem = document.getElementById("t-scale");
+
 	const ar_elem = document.getElementById("a_r");
 	const ag_elem = document.getElementById("a_g");
 	const ab_elem = document.getElementById("a_b");
+
 	const br_elem = document.getElementById("b_r");
 	const bg_elem = document.getElementById("b_g");
 	const bb_elem = document.getElementById("b_b");
+
 	const cr_elem = document.getElementById("c_r");
 	const cg_elem = document.getElementById("c_g");
 	const cb_elem = document.getElementById("c_b");
+	
 	const dr_elem = document.getElementById("d_r");
 	const dg_elem = document.getElementById("d_g");
 	const db_elem = document.getElementById("d_b");
