@@ -23,7 +23,7 @@ function set_nav_table() {
     create_divider()
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/makeTemplate", "Make Template")
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/debug", "Debugging")
-    create_li("dropdown-item", "https://godot-javascript-web.netlify.app/autoLoad", "Using GlobalSignal")
+    create_li("dropdown-item", "https://godot-javascript-web.netlify.app/autoLoad", "Use AutoLoad")
 }
 
 function create_li(c_name, ref, listName) {
