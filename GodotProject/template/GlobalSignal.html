@@ -118,58 +118,56 @@
 		</style>
     </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-secondary">
-        <div class="container-fluid">
-            <a href="#" class="navbar-brand">Godot-Web</a>
-            <form class="d-flex" role="search">
-				<div class="btn-group" role="group">
-					<button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-					  Docs
-					</button>
-					<ul class="dropdown-menu">
-					  <li><a class="dropdown-item" href="/installation/index.html">How to Install</a></li>
-					  <li><a class="dropdown-item" href="/godotToJs/index.html">GodotToWeb</a></li>
-					  <li><a class="dropdown-item" href="/webToGodot/index.html">WebToGodot</a></li>
-					</ul>
-				  </div>
-            </form>
-        </div>
-    </nav>
-    <div id="status" class="rounded-3 bg-primary">
-        <div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
-            <div id ="status-progress-inner"></div>
-        </div>
-        <div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <div id="status-notice" class="godot" style="display: none;"></div>
-    </div>
-    <canvas class="p-3 border border-3 rounded-3" id="canvas">
-        HTML5 canvas appears to be unsupported in the current browser.<br >
-        Please try updating or use a different browser.
-    </canvas>
-	<div>
-		<button
-			type="button"
-			class="btn btn-primary"
-			id="test-btn"
-		>
-			TestBtn
-		</button>
-	</div>
-	<div class="p-3 bg-success rounded-3">
-		<h3>Result &gt</h3>
-		<label id="result"></label>
+	<nav class="navbar navbar-expand-lg bg-body-secondary" id="top-table">
+		<div class="container-fluid">
+			<a href="./index.html" class="navbar-brand" id="">Godot-Web</a>
+		  <div class="btn-group dropstart" id="btn-group" role="group">
+			<button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Docs</button>
+					<!--using nav templete-->
+		  </div>
+		</div>
+	</nav>
+	
+	<div class="p-3 m-3 border border-3 border-secondary rounded-3 bg-secondary-subtle">
+		<div id="status" class="rounded-3 bg-primary">
+			<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
+				<div id ="status-progress-inner"></div>
+			</div>
+			<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div id="status-notice" class="godot" style="display: none;"></div>
+		</div>
+		<canvas class="p-3 border border-3 rounded-3" id="canvas">
+			HTML5 canvas appears to be unsupported in the current browser.<br >
+			Please try updating or use a different browser.
+		</canvas>
+		<div>
+			<button
+				type="button"
+				class="btn btn-primary"
+				id="test-btn"
+			>
+				TestBtn
+			</button>
+		</div>
+		<div class="p-3 bg-success rounded-3">
+			<h3>Result &gt</h3>
+			<label id="result"></label>
+		</div>
+		
 	</div>
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	<script src="https://godot-javascript-web.netlify.app/JsTemplete/navtemp.js"></script>
 </body>
 <script src="index.js"></script>
 <script>
@@ -298,3 +296,4 @@ engine.startGame({
 }());
 </script>
 </html>
+
