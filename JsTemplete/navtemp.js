@@ -11,8 +11,8 @@ function set_nav_table() {
     btnGroup.append(ddMenu)
     
     var dditemStr = "dropdown-item"
-    
-    create_li("dropdown-item", "https://godot-javascript-web.netlify.app", "Install Godot")
+
+    create_li("dropdown-item", "https://godot-javascript-web.netlify.app/installation", "Install Godot")
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/setEnv", "Set Environment")
     create_divider()
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/godotToWeb/godotToWeb.html", "GodotToWeb")
