@@ -12,18 +12,17 @@ function set_nav_table() {
     
     var dditemStr = "dropdown-item"
     
-    create_li("dropdown-item", "/installation/index.html", "Install Godot")
-    create_li("dropdown-item", "/setEnv/index.html", "Set Environment")
+    create_li("dropdown-item", "godot-javascript-web.netlify.app/", "Install Godot")
+    create_li("dropdown-item", "godot-javascript-web.netlify.app/setEnv", "Set Environment")
     create_divider()
-    create_li("dropdown-item", "/godotToWeb/index.html", "GodotToWeb")
-    create_li("dropdown-item", "#", "Example - 1")
+    create_li("dropdown-item", "godot-javascript-web.netlify.app/godotToWeb", "GodotToWeb")
+    create_li("dropdown-item", "godot-javascript-web.netlify.app/#", "Example - 1")
     create_divider()
-    create_li("dropdown-item", "/webToGodot/index.html", "WebToGodot")
+    create_li("dropdown-item", "godot-javascript-web.netlify.app/webToGodot", "WebToGodot")
     create_li("dropdown-item", "#", "Example - 2")
     create_divider()
-    create_li("dropdown-item", "#", "Debugging")
-    create_li("dropdown-item", "#", "Using GlobalSignal")
-    create_li("dropdown-item", "#", "Set Environment")
+    create_li("dropdown-item", "godot-javascript-web.netlify.app/Debug", "Debugging")
+    create_li("dropdown-item", "godot-javascript-web.netlify.app/autoLoad", "Using GlobalSignal")
 }
 
 function create_li(c_name, ref, listName) {
