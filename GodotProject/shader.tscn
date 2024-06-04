@@ -13,6 +13,7 @@ shader_parameter/d_index = Vector3(0.263, 0.416, 0.557)
 shader_parameter/time_scale = 1.06
 
 [node name="Node2D" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_jvnc5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
