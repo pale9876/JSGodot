@@ -22,3 +22,5 @@ shape = SubResource("CircleShape2D_wpb4k")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="CharacterBody2D"]
 position = Vector2(-10, -10)
 rect = Rect2(0, 0, 20, 20)
+
+[connection signal="screen_exited" from="CharacterBody2D/VisibleOnScreenNotifier2D" to="CharacterBody2D" method="_on_visible_on_screen_notifier_2d_screen_exited"]
