@@ -13,15 +13,15 @@ function set_nav_table() {
     var dditemStr = "dropdown-item"
 
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/installation", "Install Godot")
-    create_li("dropdown-item", "https://godot-javascript-web.netlify.app/setEnv", "Set Environment")
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/simpleTutorial", "Godot Simple Tutorial")
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/makeTemplate", "Make Html5 Template")
+    create_li("dropdown-item", "https://godot-javascript-web.netlify.app/setEnv", "Set Environment")
     create_divider()
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/godotToWeb/godotToWeb.html", "GodotToWeb")
-    create_li("dropdown-item", "https://godot-javascript-web.netlify.app/godotToWeb/", "Example - 1")
+    create_li("dropdown-item", "https://godot-javascript-web.netlify.app/godotToWeb/", "Example) Pos_Info")
     create_divider()
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/webToGodot/webToGodot.html", "WebToGodot")
-    create_li("dropdown-item", "https://godot-javascript-web.netlify.app/webToGodot/", "Example - 2")
+    create_li("dropdown-item", "https://godot-javascript-web.netlify.app/webToGodot/", "Example) Change Parameter")
     create_divider()
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/debug", "Debugging")
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/autoLoad", "Use AutoLoad")
