@@ -20,7 +20,6 @@ func _process(delta: float) -> void:
 	if OS.has_feature('web'):
 		if document.title == "GlobalSignal":
 			monitoring_test_btn()
-			monitoring_paste()
 			monitoring_clear_btn()
 
 func monitoring_test_btn() -> void:
