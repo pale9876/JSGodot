@@ -10,6 +10,9 @@ var pos:Vector2
 var input:Vector2
 var dir:Vector4
 
+func _ready() -> void:
+	$VisibleOnScreenNotifier2D.screen_exited.connect(_on_visible_on_screen_notifier_2d_screen_exited)
+
 func _physics_process(delta: float) -> void:
 	get_input()
 
@@ -31,6 +34,7 @@ func get_input() -> void:
 		"ui_up",
 		"ui_down"
 		)
+
 	var x_input = Input.get_axis("ui_left","ui_right")
 	var y_input = Input.get_axis("ui_down","ui_up")
 	
