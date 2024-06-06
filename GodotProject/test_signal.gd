@@ -4,7 +4,7 @@ extends Control
 @onready var result_panel: Panel = $HBoxContainer/VBoxContainer/Result
 
 func _ready()->void:
-	GlobalSignal.press_button.connect(on_press_test_button)
+	GlobalSignal.button_on_click.connect(on_press_test_button)
 	GlobalSignal.paste.connect(on_paste_button_click)
 	GlobalSignal.clear.connect(clear)
 	
