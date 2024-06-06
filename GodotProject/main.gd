@@ -26,9 +26,9 @@ func _process(delta: float) -> void:
 		get_values(d, "d")
 
 		get_time_scale()
-		
+
 		window.set_values()
-	
+
 
 func get_values(color_vec3:Vector3, index:String) -> void:
 	color_vec3.x = JavaScriptBridge.get_interface(index + "_r").valueOf()
