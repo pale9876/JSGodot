@@ -29,17 +29,8 @@ func monitoring_test_btn() -> void:
 		emit_count += 1
 		button_on_click.emit(emit_count)
 
-func monitoring_paste() -> void:
-	var _btn:bool = JavaScriptBridge.get_interface("is_paste_pressed").valueOf()
-	if _btn != paste_btn:
-		paste_btn = _btn
-		emit_count += 1
-		if DisplayServer.clipboard_has_image():
-			var data:Image = DisplayServer.clipboard_get_image()
-			paste.emit(emit_count, data)
-
 func monitoring_clear_btn() -> void:
-	var btn:bool = JavaScriptBridge.get_interface("is_clear_pressed").valueOf()
-	if btn != clear_btn:
-		clear_btn = btn
+	var _btn:bool = JavaScriptBridge.get_interface("is_clear_pressed").valueOf()
+	if _btn != clear_btn:
+		clear_btn = _btn
 		clear.emit()
