@@ -128,62 +128,37 @@
 		</div>
 	</nav>
 	
-
-	
-
 	<div class="p-3 m-3 border border-3 border-secondary rounded-3 bg-secondary-subtle">
-		<h5>Global Web Signal</h5>
-
-		<div class="bg-black p-3 m-3 rounded-3">
-			<p class="">
-				&nbsp;이 페이지에서는 Autoload를 활용한 자바스크립트 시그널을 만들어보겠습니다.<br>
-				&nbsp;만들기 앞서 GDScript는 설계상 전역 변수를 지원하지 않기에, Autoload라는 기능으로 싱글턴 디자인 패턴을 쉽게 간편화하여 지원하고 있습니다.<br>
-				&nbsp;장면의 추가, 전환, 삭제가 등 실행 중인 장면의 이벤트와 관계없이 항상 불러오기 때문에 씁니다. 더 자세한 내용은 공식 문서의
-				<a href="https://docs.godotengine.org/en/stable/tutorials/scripting/singletons_autoload.html">Autoload</a>를 참고해주세요.
-			</p>
-
-			<h6>
-				&nbsp;먼저 저희가 만들어 볼 것은 GlobalSignal 스크립트입니다.
-				파일시스템에서 스크립트를 추가하고, 파일명을 GlobalSignal.gd로 변경합니다.
-			</h6>
-
+		<div id="status" class="rounded-3 bg-primary">
+			<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
+				<div id ="status-progress-inner"></div>
+			</div>
+			<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+			<div id="status-notice" class="godot" style="display: none;"></div>
 		</div>
-		
-		<div class ="p-3 m-3 border border-3 border-secondary rounded-3 bg-secondary-subtle" >
-
-			<div id="status" class="">
-				<div id="status-progress" style="display: none;" oncontextmenu="event.preventDefault();">
-					<div id ="status-progress-inner"></div>
-				</div>
-				<div id="status-indeterminate" style="display: none;" oncontextmenu="event.preventDefault();">
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-					<div></div>
-				</div>
-				<div id="status-notice" class="godot" style="display: none;"></div>
-			</div>
-			<canvas class="p-3 border border-3 rounded-3" id="canvas">
-				HTML5 canvas appears to be unsupported in the current browser.<br >
-				Please try updating or use a different browser.
-			</canvas>
-			<div>
-				<button
-					type="button"
-					class="btn btn-primary"
-					id="test-btn"
-				>
-					TestBtn
-				</button>
-			</div>
-			<div class="p-3 bg-success rounded-3">
-				<h3>Result &gt</h3>
-				<label id="result"></label>
-			</div>
+		<canvas class="p-3 border border-3 rounded-3" id="canvas">
+			HTML5 canvas appears to be unsupported in the current browser.<br >
+			Please try updating or use a different browser.
+		</canvas>
+		<div>
+			<button
+				type="button"
+				class="btn btn-outline-primary"
+				id="test-btn"
+			>
+				Label
+			</button>
+			<button type="button" class="btn btn-outline-info" id="paste-btn">Image</button>
+			<button type="button" class="btn btn-outline-danger" id="clear-btn">Clear</button>
 		</div>
 		
 	</div>
@@ -194,20 +169,34 @@
 </body>
 <script src="index.js"></script>
 <script>
+	var emitted_count = 0
+
 	var test_btn = document.getElementById("test-btn")
-	var result = document.getElementById("result")
 	var is_test_pressed = false
 	test_btn.onclick = test_btn_press
 	
-	var emitted_count = 0
+	var paste_btn = document.getElementById("paste-btn")
+	var is_paste_pressed = false
+	paste_btn.onclick = paste_btn_press
+
+	var clear_btn = document.getElementById("clear-btn")
+	var is_clear_pressed = false
+	clear_btn.onclick = clear_btn_press
 
 	function test_btn_press() {
 		is_test_pressed = !is_test_pressed
 	}
 
+	function paste_btn_press() {
+		is_paste_pressed = !is_paste_pressed
+	}
+
+	function clear_btn_press() {
+		is_clear_pressed = !is_clear_pressed
+	}
+
 	function set_count_label(){
 		emitted_count += 1;
-		result.innerHTML = "Success" + String(emitted_count)
 	}
 
 </script>

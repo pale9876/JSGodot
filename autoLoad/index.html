@@ -152,15 +152,13 @@
 		<div>
 			<button
 				type="button"
-				class="btn btn-primary"
+				class="btn btn-outline-primary"
 				id="test-btn"
 			>
-				TestBtn
+				Label
 			</button>
-		</div>
-		<div class="p-3 bg-success rounded-3">
-			<h3>Result &gt</h3>
-			<label id="result"></label>
+			<button type="button" class="btn btn-outline-info" id="paste-btn">Image</button>
+			<button type="button" class="btn btn-outline-danger" id="clear-btn">Clear</button>
 		</div>
 		
 	</div>
@@ -171,20 +169,34 @@
 </body>
 <script src="index.js"></script>
 <script>
+	var emitted_count = 0
+
 	var test_btn = document.getElementById("test-btn")
-	var result = document.getElementById("result")
 	var is_test_pressed = false
 	test_btn.onclick = test_btn_press
 	
-	var emitted_count = 0
+	var paste_btn = document.getElementById("paste-btn")
+	var is_paste_pressed = false
+	paste_btn.onclick = paste_btn_press
+
+	var clear_btn = document.getElementById("clear-btn")
+	var is_clear_pressed = false
+	clear_btn.onclick = clear_btn_press
 
 	function test_btn_press() {
 		is_test_pressed = !is_test_pressed
 	}
 
+	function paste_btn_press() {
+		is_paste_pressed = !is_paste_pressed
+	}
+
+	function clear_btn_press() {
+		is_clear_pressed = !is_clear_pressed
+	}
+
 	function set_count_label(){
 		emitted_count += 1;
-		result.innerHTML = "Success" + String(emitted_count)
 	}
 
 </script>
@@ -296,4 +308,5 @@ engine.startGame({
 }());
 </script>
 </html>
+
 

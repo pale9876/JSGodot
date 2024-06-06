@@ -42,24 +42,26 @@
             <div class="container-md rounded-3 m-auto p-3 bg-dark-subtle">
                 <h6 class="m-3">
                     &nbsp;이 문서는 공식문서에 서술된 <a class="badge rounded-pill text-bg-light" href="https://docs.godotengine.org/ko/4.x/classes/class_javascriptbridge.html">JavaScriptBridge</a> 클래스 문서를 보충설명 및 응용하는 방법을 알리기 위해 만들었습니다.
+                    <br>&nbsp;고도엔진 웹게임은 대부분 itch.io를 통하여 배포가 되지만, 그러한 게임들은 런타임 안에서만 상호작용을 할 뿐, 웹과 반응하거나 상호작용하지 않습니다.
+                    <br>&nbsp;따라서, 해당 자료는 반응형 웹게임을 만들기 위한 자료이며, 웹과 자바스크립트 기능을 같이 활용한
+                    게임을 만들어 볼 때에 해당 자료가 유용하게 참고되었으면 좋겠습니다.
                 </h6>
                 <p class="m-3">
-                    &nbsp;Godot Engine을 웹으로 내보내는 방법은 공식 문서의 <a class="badge rounded-pill text-bg-danger" href="https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html#calling-javascript-from-script">Export for the Web</a> 한 번 읽어주시길 바랍니다.
+                    &nbsp;Godot Engine에서 런타임을 웹으로 내보내는 방법은 공식 문서의 <a class="badge rounded-pill text-bg-danger" href="https://docs.godotengine.org/en/stable/tutorials/export/exporting_for_web.html#calling-javascript-from-script">Export for the Web</a> 한 번 읽어주시길 바랍니다.
                 </p>
                 <p class="m-3">
-                    &nbsp;GDSciprt는 정적타이핑을 지원하고, 스크립트 내에서 자바스크립트 객체의 타입을 지정하는 것이 가능합니다.
-                    하지만 GDScript는 선언한 변수에 대하여 자바스크립트와 달리 타입을 재정의하는 것이 불가능하고,
+                    &nbsp;GDScript와 JavaScript는 문법은 매우 차이가 나지만 모두 동적언어이며, 배우기 쉬운 언어입니다.
+                    해당 문서는 GDScript를 깊게 다루고 있지도, JavaScript에 대하여 깊게 다루고 있지 않지만,
+                    GDScript는 파이썬과 문법이 매우 유사하여 기존에 코드를 공부해왔던 유저들이 접근하기 매우 쉽습니다.
+                    <br>&nbsp;두 언어에 대한 이해도가 낮더라도 어느정도 따라해볼 수 있도록 페이지를 작성하였지만,
+                    이 문서는 GDScript의 JavaScriptBridge 클래스에 대한 보충설명을 하는 문서이므로 언어에 대한 튜토리얼 및 고도엔진/웹에 대한 설명은 매우 간략화되어 있습니다.
+
+                    <br><br>&nbsp;.NET버전은 안타깝게도 4버전이 출시한지 1년이 지난 현재까지 지원이 누락되어 원래 원활하게 구현이 되었던 Blazor-Godot 웹 구현이 불가능하게 되었지만
+                    지원이 약속되어 있는 만큼, 향후 다시 문서를 재작성하여 배포하겠습니다.
+                    <br>&nbsp;
+                    <br>
                 </p>
-                <p class="m-3">
-                    아래는 자바오브젝트에서 값(value)을 가져왔을 시 GDScript에서 대응되는 타입입니다.
-                </p>
-                <ul class="m-4">
-                    <li>Boolean > bool</li>
-                    <li>Number > int / float</li>
-                    <li>String > String</li>
-                    <li>ArrayBuffer, TypedArray > PackedByteArray</li>
-                </ul>
-                <p class="m-3">&nbsp;함수는 Callable로 대응됩니다. 만약 GDScript가 JS에서 해당 타입의 오브젝트들을 불러오게 된다면 대응되는 타입을 반환하게 됩니다.</p>
+
             </div>
         </div>
     </div>

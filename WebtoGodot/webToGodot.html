@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web - Godot</title>
+    <title>Godot-to-Web</title>
     <script src="https://cdn.jsdelivr.net/gh/proudparrot2/quick.js/quick.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link id='-gd-engine-icon' rel='icon' type='image/png' href='index.icon.png' />
@@ -13,19 +13,62 @@
     <title>Document</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-secondary" id="top-table">
-    <div class="container-fluid">
-        <a href="./index.html" class="navbar-brand" id="">Godot-Web</a>
-      <div class="btn-group dropstart" id="btn-group" role="group">
-        <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Docs</button>
-                <!--using nav templete-->
-      </div>
-    </div>
-</nav>
+    <nav class="navbar navbar-expand-lg bg-body-secondary" id="top-table">
+        <div class="container-fluid">
+            <a href="./index.html" class="navbar-brand" id="">Godot-Web</a>
+          <div class="btn-group dropstart" id="btn-group" role="group">
+            <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Docs</button>
+                    <!--using nav templete-->
+          </div>
+        </div>
+    </nav>
 
-    <div class="m-3 p-3 bg-info-subtle rounded-3 border border-3 border-info">
-      
+    <div class="m-3 p-3 bg-secondary-subtle rounded-3">
+        <h5>
+            GDScript로 자바스크립트 객체 불러오기
+        </h5>
+        <div class="m-3 p-3 bg-black rounded-3">
+            <p class="m-auto">
+                &nbsp;이 페이지에서는 GDScript를 활용하여 웹에서 메서드를 불러와 실행시키는 방법에 대해서 알려드리겠습니다.
+                참고로 웹으로 내보낸 고도엔진 프로그램은 JavaScript처럼 에러를 개발자 콘솔로 내보냅니다.
+                개발자도구를 열어보는 것으로 엔진과 자바스크립트가 발생시키는 오류와 경고를 모두 볼 수 있습니다.<br>
+                <br>&nbsp;먼저 window 인터페이스와 console객체를 GDScript로 불러와보겠습니다. window와 console객체를 GDScript에서 JavaScriptObject로 정의하면 해당 객체를 엔진 내에서 참조할 수 있습니다.
+            </p>
+        </div>
+    
+        <div class="m-3 p-3 rounded-3 bg-black">
+            <div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#ffffff;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;extends&nbsp;CharacterBody2D</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;window:JavaScriptObject&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">=</span>&nbsp;JavaScriptBridge.get_interface(<span style="color:#63a35c">"window"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">var&nbsp;console:JavaScriptObject&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">=</span>&nbsp;JavaScriptBridge.get_interface(<span style="color:#63a35c">"conosole"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;...</span></div></div><div style="text-align:right;margin-top:-13px;margin-right:5px;font-size:9px;font-style:italic"><a href="http://colorscripter.com/info#e" target="_blank" style="color:#e5e5e5text-decoration:none">Colored by Color Scripter</a></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+        </div>
+        <p class="m-3">
+            &nbsp;다음은 처음 자바스크립트를 배웠을 때 많이 쓰는 메서드를 각각 _ready()함수에서 실행시키겠습니다.
+        </p>
+    
+        <div class="m-3 p-3 rounded-3 bg-black">
+            <div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#ffffff;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;extend&nbsp;CharacterBody2D</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">func&nbsp;_ready()&nbsp;<span style="color:#0086b3"></span><span style="color:#a71d5d">-</span><span style="color:#0086b3"></span><span style="color:#a71d5d">&gt;</span>&nbsp;void:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;console.log(<span style="color:#63a35c">"Hello,Console"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;window.alert(<span style="color:#63a35c">"Hello,&nbsp;JavaScript"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%"><span style="color:#999999">#&nbsp;...</span></div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#e5e5e5;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+        </div>
+        <p class="m-3">
+            &nbsp;작성을 완료하셨다면 웹으로 내보낼 때에 작성한 메세지들을 각각 콘솔과
+            브라우저의 팝업 알림을 통하여 메세지를 확인하실 수 있습니다.
+            &nbsp;참고로 GDScript에서 console.log()를 쓰기 위해 console객체를 불러올 필요가 없습니다.
+            GDScript의 print() / push_warning() / push_error() 메서드는 웹으로 내보낼 시, 각각 메세지 / 경고 / 에러를 개발자 콘솔에 출력하는 기능을 하게 됩니다.
+            <br><br>&nbsp;다음은 자바스크립트 메서드를 GDScript로 불러와 실행해보겠습니다.
+            이전에 불러온 window 인터페이스는 함수, 이름, 객체가 머무는 장소입니다.
+            이는 사용자가 쓴 자바스크립트 메서드, 변수를 포함합니다.
+
+            <br><br>&nbsp;이를 이용하여 간단하게 hello_world라는 메세지를 출력하는 함수를 GDScript에서 실행시켜보겠습니다.
+        </p>
+        <div class="m-3 p-3 rounded-3 bg-black">
+            <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f0f0f0">&lt;</span><span style="color:#ff3399">script</span><span style="color:#f0f0f0">&gt;</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#ff3399">function</span>&nbsp;hello_world(){</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">alert</span>(<span style="color:#ffd500">"hello_world"</span>)</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#f0f0f0">&lt;</span><span style="color:#f0f0f0">/</span><span style="color:#ff3399">script</span><span style="color:#f0f0f0">&gt;</span></div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+        </div>
+        <div class="m-3 p-3 rounded-3 bg-black">
+            <div class="colorscripter-code" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#000000;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%">func&nbsp;_ready()&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">-</span><span style="color:#0086b3"></span><span style="color:#ff3399">&gt;</span>&nbsp;void:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;window.hello_world()</div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+        </div>
+
+        <p class="m-3">
+            이제 프로젝트를 웹으로 내보내어 잘 작동하는지 확인해보세요. 처음 웹에 진입할 시, hello_world가 알림 팝업으로 나타난다면 정상입니다.
+        </p>
     </div>
+
 
     <script src="https://godot-javascript-web.netlify.app/JsTemplete/navtemp.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
