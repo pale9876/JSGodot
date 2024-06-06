@@ -18,9 +18,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if OS.has_feature('web'):
-		if document.title == "GlobalSignal":
-			monitoring_test_btn()
-			monitoring_clear_btn()
+		monitoring_test_btn()
+		monitoring_clear_btn()
 
 func monitoring_test_btn() -> void:
 	var _btn:bool = JavaScriptBridge.get_interface("is_test_pressed").valueOf()
