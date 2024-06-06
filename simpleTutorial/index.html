@@ -8,7 +8,12 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link id='-gd-engine-icon' rel='icon' type='image/png' href='index.icon.png' />
         <link rel='apple-touch-icon' href='index.apple-touch-icon.png'/>
-    </head>
+        <style>
+          img{
+            margin : 0 auto;
+          }
+        </style>
+      </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-body-secondary" id="top-table">
     <div class="container-fluid">
@@ -22,24 +27,94 @@
 
   <div class="border border-3 border-secondary p-3 m-3 rounded-1">
     <h5>
-        간단엔진 사용 설명서
+        GodotEngine 사용 설명서
     </h5>
-    <div class="m-3 bg-black rounded-3">
-      <p class="m-3 p-3">
-        해당 문서에서는 고도엔진 조작에 대한 기초를 서술합니다.
-        이 문서보다는 공식 문서에서 더 좋은 <a href="https://docs.godotengine.org/en/stable/getting_started/introduction/introduction_to_godot.html">튜토리얼</a>을 제공하니 반드시 참고하시길 바랍니다.
-        따라서 저희가 제공해드릴 설명서는 노드와 스크립트 추가, 그리고 씬을 구성하는 방법입니다.
+    <div class="m-3 p-3 bg-black rounded-3">
+      <p class="m-3">
+        &nbsp;해당 문서에서는 고도엔진 조작에 대한 기초를 서술합니다.
+        엔진에 대하여 잘 모른다면 이 페이지보다는 <a href="https://docs.godotengine.org/en/stable/getting_started/introduction/introduction_to_godot.html">공식문서</a>의 튜토리얼을 참고하기를 바랍니다.
+        이 페이지에서 다룰 내용은 노드와 스크립트 추가, 시그널(Signal), 그리고 씬을 구성하는 방법입니다.
       </p>
-      <p>
+      <div class="m-3 p-3 bg-primary-subtle border border-3 border-secondary rounded-3">
 
-      </p>
-    </div>
-    <div>
+        <img class="img-fluid border border-3 border-primary rounded-3" src="../captures/EditorScreen.PNG">
 
+        <p class="m-3">
+          &nbsp;프로젝트를 만들고 나게 되면 보게 될 화면입니다.
+          상단 바를 주목하시면 [empty]로 표기된 씬이 사용자가 만들게 될 씬이 이미 포커싱되어 화면에 띄워져 있습니다.
+        </p>
+        
+        <p class="m-3">
+          여기서 왼쪽 위에 배치된 창이 바로 노드가 배치될 SceneTree(씬트리)이고 아래가 현재 프로젝트의 FileSystem(파일시스템) 입니다.
+          <br>&nbsp;여기서 씬트리에 노드를 배치하겠습니다. 씬트리에서 단축키 Ctrl + A 또는 + 버튼을 누르면 씬을 추가할 수 있습니다.
+        </p>
+
+        <img class="img-fluid rounded-3 border border-3 border-primary" src="../captures/createNodes.PNG" alt="">
+        <p class="m-3">
+          &nbsp;여기서 노드를 추가해보겠습니다.
+          기본적으로 씬을 이루는 가장 기본단위는 노드이며 해당 노드는 2차원 좌표계를 가진 노드와 3차원 좌표계를 가진 노드,
+          그리고 캔버스 상에서 2차원 좌표와 앵커를 가진 Control노드가 있습니다.
+          <br>&nbsp;이 페이지에서는 간단하게 노드만을 만들어 보겠습니다.
+        </p>
+
+        <img class="img-fluid rounded-3 border border-3 border-primary" src="../captures/AddedNodes.PNG" alt="">
+
+        <p>
+          노드가 만들어졌다면 해당 노드에 속한 다른 노드도 만들어 보겠습니다.
+          방금 노드를 추가했던 방법과 같이, 이전의 과정을 한 번 더 반복하면 됩니다.
+        </p>
+
+        <img class="img-fluid rounded-3 border border-3 border-primary" src="../captures/ParentOrChild.PNG" alt="">
+        <p>
+          &nbsp;이렇게 노드 밑에 또 다른 노드가 추가되었습니다. 하지만 지금 추가된 노드를 보게 되면
+          아까 만들었던 노드와 이어진게 마치 위의 노드에 속한 것 처럼 연결된 것이 보일 것입니다.
+          <br>&nbsp;이것을 고도에서는 노드트리라고 부르며 위의 노드는 부모노드, 부모노드에 속한 하위 노드들을 자식노드라고 부릅니다.
+          <br>&nbsp;자식노드 또한 부모노드와 똑같이 하위노드를 가질 수 있으며
+          씬 또한 노드트리 안에서 부모자식 관계를 구성할 수 있습니다.
+          <br>&nbsp;이제 더 나아가 노드에 스크립트를 추가할 것입니다. 노드에 스크립트를 추가하려면 해당 노드를 클릭 후 씬트리의 상단 바에 위치한 스크립트 추가 버튼을 클릭하면 됩니다.
+          <img class="img-fluid rounded-3 border border-3 border-primary" src="../captures/scriptButton.PNG" alt="">
+        </p>
+
+          <img class="img-fluid rounded-3 border border-3 border-primary" src="../captures/createNormalScript.PNG">
+          <p class="m-3">
+            <br>&nbsp;Create 버튼을 누르게 되면 노드가 생성되게 되고, 스크립트가 노드에 붙여진게 표시가 됩니다.
+            <img class="img-fluid rounded-3 border border-3 border-primary" src="../captures/scriptAttach.PNG">
+          </p>
+      </div>
+      <div class="border border-3 border-secondary p-3 m-3 rounded-3 bg-secondary-subtle">
+        <h5>Signal / Custom Signal</h5>
+          <div class="border p-3 m-3 rounded-3">
+            <img class="border border-3 border-primary img-fluid rounded-3" src="../captures/signals.PNG" alt="">
+            <p class="m-3">
+              &nbsp;이제 시그널을 만들고 내보내겠습니다.
+              <br>&nbsp;Signal은 관찰자 패턴을 Godot의 설계버전에 맞게 간편화한 것입니다.
+              Control노드를 상속하고 있는 Button노드에 기본적으로 내장되어 있는 시그널 기능들을 보게 된다면, pressed(), button_downed()와 같이
+              버튼으로서 있을 법한 신호들이 있는데 그와 같이 사용자의 행동 또는 코드를 개발자가 감지하게 하여 또 다른 기능을 부르는 데에 유용합니다.
+              <br>&nbsp;
+              <br>&nbsp;하지만 저희가 구현할 기능들은 대부분 웹에서의 행동을 감지하는데에 최적화 되어 있어야하지만, 기본적으로 제공되는 UI시그널들은 그렇지 못합니다.
+              개발자가 직접 관찰자를 만들어 기능을 부여해야하기에 Custom Signal을 간단하게 만드는 것부터 해보겠습니다.
+              <br>&nbsp;
+              <br>&nbsp;이전 단계에서 부모노드에 스크립트를 붙였듯이 자식노드에도 스크립트를 붙이고, 부모노드는 'Parent', 자식노드는 'Child'라고 이름을 정한 뒤, 해당 노드의 스크립트 아이콘을 클릭하여 창으로 넘어가보겠습니다.
+            </p>
+            <img src="../captures/Script.PNG" class="img-fluid border border-3 border-primary rounded-3" alt="">
+            <p class="m-3">
+              <br>&nbsp;Child 노드에 시그널을 추가하는 방법은 위와 같이 내보낼 시그널 명과 시그널 타입을 스크립트에서 선언하면 
+              인스펙터 > 노드 창에서 선언한 시그널을 볼 수 있게 됩니다.
+              이제 부모노드에서 실행 시, 노드가 런타임에서 씬트리 배치가 완료되는대로 신호를 내보내도록 만들어보겠습니다.
+              <br>&nbsp;<br>&nbsp;Parent 노드의 스크립트로 이동하여 다음과 같이 스크립트를 추가합니다.
+
+            </p>
+            <div class="rounded-3 border border-3 border-secondary" style="color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#272727;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #4f4f4f"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#aaa;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div><div style="line-height:130%">2</div><div style="line-height:130%">3</div><div style="line-height:130%">4</div><div style="line-height:130%">5</div><div style="line-height:130%">6</div><div style="line-height:130%">7</div><div style="line-height:130%">8</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#f0f0f0;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%">extends&nbsp;Node</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">func&nbsp;_ready()&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">-</span><span style="color:#0086b3"></span><span style="color:#ff3399">&gt;</span>&nbsp;void:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;$Child.signal_out.connect(get_signal)&nbsp;<span style="color:#999999">#&nbsp;해당&nbsp;노드의&nbsp;신호와&nbsp;연결</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;$Child.signal_out.emit()&nbsp;<span style="color:#999999">#&nbsp;신호를&nbsp;내보냄</span></div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;</div><div style="padding:0 6px; white-space:pre; line-height:130%">func&nbsp;get_signal()&nbsp;<span style="color:#0086b3"></span><span style="color:#ff3399">-</span><span style="color:#0086b3"></span><span style="color:#ff3399">&gt;</span>&nbsp;void:</div><div style="padding:0 6px; white-space:pre; line-height:130%">&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#4be6fa">print</span>(<span style="color:#ffd500">"get_signal()"</span>)&nbsp;<span style="color:#999999">#신호를&nbsp;받은&nbsp;결과</span></div></div></td><td style="vertical-align:bottom;padding:0 2px 4px 0"><a href="http://colorscripter.com/info#e" target="_blank" style="text-decoration:none;color:white"><span style="font-size:9px;word-break:normal;background-color:#4f4f4f;color:white;border-radius:10px;padding:1px">cs</span></a></td></tr></table></div>
+          
+            <p>
+              스크립트가 추가되었으면, Ctrl + S로 씬을 저장한 후 실행시켜봅니다.
+            </p>
+          </div>
+      </div>
     </div>
   </div>
 
-    <!-- <script src="https://godot-javascript-web.netlify.app/JsTemplete/navtemp.js"></script> -->
+    <script src="https://godot-javascript-web.netlify.app/JsTemplete/navtemp.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
