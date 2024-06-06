@@ -69,7 +69,7 @@ func output() -> void:
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	reset_pos()
-	window.alert("스크린을 벗어났습니다. 리셋하겠습니다.")
+	window.alert("Out Screen : Set position Default")
 
 func reset_pos() -> void:
 	global_position = Vector2(300,200)
