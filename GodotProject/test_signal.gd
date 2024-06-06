@@ -1,7 +1,7 @@
 extends Control
 
-@onready var count_panel: Panel = $HBoxContainer/VBoxContainer2/Count/VBoxContainer
-@onready var result_panel: Panel = $HBoxContainer/VBoxContainer/Result/VBoxContainer
+@onready var count_panel: VBoxContainer = $HBoxContainer/VBoxContainer2/Count/VBoxContainer
+@onready var result_panel: VBoxContainer = $HBoxContainer/VBoxContainer/Result/VBoxContainer
 
 func _ready()->void:
 	GlobalSignal.button_on_click.connect(on_press_test_button)
