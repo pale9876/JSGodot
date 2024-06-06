@@ -216,15 +216,12 @@
 <script src="index.js"></script>
 <script>
 	var test_btn = document.getElementById("test-btn")
-	var is_test_pressed = false
-	test_btn.onclick = test_btn_press
-	
-	var paste_btn = document.getElementById("paste-btn")
-	var is_paste_pressed = false
-	paste_btn.onclick = paste_btn_press
-
 	var clear_btn = document.getElementById("clear-btn")
+	
+	var is_test_pressed = false
 	var is_clear_pressed = false
+	
+	test_btn.onclick = test_btn_press
 	clear_btn.onclick = clear_btn_press
 
 	function test_btn_press() {
