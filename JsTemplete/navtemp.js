@@ -12,6 +12,7 @@ function set_nav_table() {
     
     var dditemStr = "dropdown-item"
 
+    create_li("dropdown-item", "https://godot-javascript-web.netlify.app/", "Home")
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/installation", "Install Godot")
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/simpleTutorial", "Godot Simple Tutorial")
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/makeTemplate", "Make Html5 Template")
@@ -25,6 +26,8 @@ function set_nav_table() {
     create_divider()
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/debug", "Debugging")
     create_li("dropdown-item", "https://godot-javascript-web.netlify.app/autoLoad", "Use AutoLoad")
+    create_divider()
+    create_li("dropdown-item", "https://github.com/pale9876/JSGodot", "=> Github")
 }
 
 function create_li(c_name, ref, listName) {
